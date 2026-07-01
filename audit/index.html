@@ -10,16 +10,19 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<!-- Yandex.Metrika -->
+<!-- Yandex.Metrika counter -->
 <script type="text/javascript">
-(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-m[i].l=1*new Date();for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
-k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-(window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-ym(105903935,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:false});
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110310649', 'ym');
+
+    ym(110310649, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
 </script>
-<noscript><div><img src="https://mc.yandex.ru/watch/105903935" style="position:absolute;left:-9999px" alt=""></div></noscript>
-<!-- /Yandex.Metrika -->
+<noscript><div><img src="https://mc.yandex.ru/watch/110310649" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
 
 <!-- Google Tag Manager -->
 <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
@@ -443,7 +446,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   }
   /* ym_client_id через Метрику */
   var ymId = '';
-  try { ym(105903935,'getClientID',function(id){ ymId = id||''; }); } catch(e){}
+  try { ym(110310649,'getClientID',function(id){ ymId = id||''; }); } catch(e){}
 
   /* ---- отправка формы ---- */
   F.addEventListener('submit', function(e){
@@ -470,7 +473,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     }).then(function(r){ return r.json().catch(function(){return {ok:true};}); })
       .then(function(){
         F.classList.add('sent');
-        try{ ym(105903935,'reachGoal','audit_lead'); }catch(e){}
+        try{ ym(110310649,'reachGoal','audit_lead'); }catch(e){}
         try{ dataLayer.push({event:'audit_lead'}); }catch(e){}
       })
       .catch(function(){
