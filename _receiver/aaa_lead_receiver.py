@@ -17,18 +17,19 @@ aaa_lead_receiver.py — приёмник лидов лендинга → Google
   PORT                                     — порт (127.0.0.1)
   TZ_OFFSET                                — смещение часов для метки времени (Иркутск = 8)
 
-Формат строки (16 колонок, как в таблице-образце):
-  date, name, phone, form_name, ym_client_id, yclid, utm_source, utm_medium,
-  utm_campaign, utm_term, utm_content, utm_device_type, utm_placement,
-  ga_client_id, comment, is_junk
+Запись — ПО ИМЕНАМ КОЛОНОК: приёмник читает строку-заголовок таблицы и раскладывает поля
+по её порядку (устойчиво к перестановке/добавлению столбцов). Поля is_junk, QL и любые
+неизвестные заголовки остаются пустыми (заполняются вручную / офлайн-конверсиями).
+Заголовок кэшируется на 10 мин; при сбое чтения — DEFAULT_HEADER.
 """
 import json, os, sys, time, urllib.request, urllib.parse
 from datetime import datetime, timezone, timedelta
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 
-COLUMNS = ["date","name","phone","form_name","ym_client_id","yclid","utm_source",
-           "utm_medium","utm_campaign","utm_term","utm_content","utm_device_type",
-           "utm_placement","ga_client_id","comment","is_junk"]
+# Резервный порядок, если заголовок таблицы не прочитался (актуален на 2026-07-02).
+DEFAULT_HEADER = ["date","name","phone","comment","form_name","ym_client_id","yclid",
+                  "utm_source","utm_medium","utm_campaign","utm_term","utm_content",
+                  "utm_device_type","utm_placement","ga_client_id","is_junk","QL"]
 
 def load_cfg():
     path = os.environ.get("AUDIT_LEAD_CONFIG", "/etc/audit-lead/config.env")
@@ -44,6 +45,7 @@ def load_cfg():
 CFG = load_cfg()
 TZ = timezone(timedelta(hours=int(CFG.get("TZ_OFFSET", "8"))))
 _token = {"value": None, "exp": 0}
+_header = {"value": None, "exp": 0}
 
 def access_token():
     if _token["value"] and time.time() < _token["exp"] - 60:
@@ -58,6 +60,26 @@ def access_token():
     _token["value"] = j["access_token"]
     _token["exp"] = time.time() + j.get("expires_in", 3600)
     return _token["value"]
+
+def get_header():
+    """Строка-заголовок таблицы (кэш 10 мин). При сбое чтения — DEFAULT_HEADER."""
+    if _header["value"] and time.time() < _header["exp"]:
+        return _header["value"]
+    try:
+        tab = CFG.get("SHEET_TAB", "Все лиды")
+        rng = urllib.parse.quote(f"{tab}!1:1")
+        url = f"https://sheets.googleapis.com/v4/spreadsheets/{CFG['SPREADSHEET_ID']}/values/{rng}"
+        req = urllib.request.Request(url, headers={"Authorization": "Bearer " + access_token()})
+        with urllib.request.urlopen(req, timeout=15) as r:
+            vals = json.load(r).get("values", [])
+        hdr = [h.strip() for h in vals[0]] if vals else []
+        if hdr:
+            _header["value"] = hdr
+            _header["exp"] = time.time() + 600
+            return hdr
+    except Exception as e:
+        print("header fetch error:", e, file=sys.stderr)
+    return _header["value"] or DEFAULT_HEADER
 
 def append_row(row):
     tab = CFG.get("SHEET_TAB", "Все лиды")
@@ -79,16 +101,27 @@ def backup(payload):
     except Exception as e:
         print("backup error:", e, file=sys.stderr)
 
-def build_row(d):
-    now = datetime.now(TZ).strftime("%Y-%m-%d %H:%M")
+def build_row(header, d):
+    """Строит строку в порядке ЗАГОЛОВКА таблицы. Неизвестные колонки (is_junk, QL, …) — пусто."""
     d = {k: (str(v).strip() if v is not None else "") for k, v in d.items()}
-    return [
-        now, d.get("name",""), d.get("phone",""), d.get("form_name","Экспресс-аудит воронки"),
-        d.get("ym_client_id",""), d.get("yclid",""), d.get("utm_source",""), d.get("utm_medium",""),
-        d.get("utm_campaign",""), d.get("utm_term",""), d.get("utm_content",""),
-        d.get("utm_device_type",""), d.get("utm_placement",""), d.get("ga_client_id",""),
-        d.get("comment",""), "",
-    ]
+    vals = {
+        "date": datetime.now(TZ).strftime("%Y-%m-%d %H:%M"),
+        "name": d.get("name", ""),
+        "phone": d.get("phone", ""),
+        "comment": d.get("comment", ""),
+        "form_name": d.get("form_name", "Экспресс-аудит воронки"),
+        "ym_client_id": d.get("ym_client_id", ""),
+        "yclid": d.get("yclid", ""),
+        "utm_source": d.get("utm_source", ""),
+        "utm_medium": d.get("utm_medium", ""),
+        "utm_campaign": d.get("utm_campaign", ""),
+        "utm_term": d.get("utm_term", ""),
+        "utm_content": d.get("utm_content", ""),
+        "utm_device_type": d.get("utm_device_type", ""),
+        "utm_placement": d.get("utm_placement", ""),
+        "ga_client_id": d.get("ga_client_id", ""),
+    }
+    return [vals.get(h, "") for h in header]
 
 class Handler(BaseHTTPRequestHandler):
     def _send(self, code, obj):
@@ -124,8 +157,8 @@ class Handler(BaseHTTPRequestHandler):
         if not (str(d.get("name","")).strip() or str(d.get("phone","")).strip()):
             self._send(422, {"ok": False, "error": "empty"}); return
 
-        row = build_row(d)
         backup(d)                          # сначала бэкап — лид не потеряется
+        row = build_row(get_header(), d)
         try:
             append_row(row)
             self._send(200, {"ok": True})
