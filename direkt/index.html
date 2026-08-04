@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Настройка Яндекс Директа — Карасов Маркетинг</title>
+<meta name="description" content="Вдумчивая, изящная настройка рекламных кампаний Яндекс Директ для вашего дела. Поиск и РСЯ, аналитика, бережное сопровождение — под ключ.">
+<link rel="icon" href="assets/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=110310649', 'ym');
+
+    ym(110310649, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/110310649" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});
+var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;
+j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-5CZ7FSBJ');</script>
+<!-- /Google Tag Manager -->
+
+<style>
+  :root{
+    --bg:#0a0a0c; --surface:#131316; --surface2:#18181c; --ink:#f5f3ef; --muted:#a7a3ac;
+    --red:#E31E24; --red-deep:#a91319; --line:rgba(255,255,255,.09);
+    --serif:'Cormorant Garamond',Georgia,'Times New Roman',serif;
+    --sans:'Manrope',-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+    --maxw:1120px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:var(--sans);background:var(--bg);color:var(--ink);line-height:1.65;font-size:17px;-webkit-font-smoothing:antialiased;position:relative;overflow-x:hidden}
+  img{max-width:100%;display:block}
+  a{color:inherit}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+  h1,h2,h3{font-family:var(--serif);font-weight:600;line-height:1.15;letter-spacing:.005em}
+  .accent{color:var(--red)}
+
+  /* ===== фоновая динамика ===== */
+  .floating-orb{position:fixed;border-radius:50%;filter:blur(110px);opacity:.28;animation:orbFloat 13s ease-in-out infinite;z-index:0;will-change:transform;pointer-events:none}
+  .orb-1{width:520px;height:520px;top:-160px;left:-120px;background:var(--red)}
+  .orb-2{width:460px;height:460px;bottom:-140px;right:-100px;background:#7a1216;animation-delay:-6s}
+  @keyframes orbFloat{
+    0%,100%{transform:translate(0,0) scale(1)}
+    25%{transform:translate(30px,-40px) scale(1.1)}
+    50%{transform:translate(-20px,20px) scale(.95)}
+    75%{transform:translate(40px,30px) scale(1.05)}
+  }
+  #particle-canvas{position:fixed;inset:0;z-index:0;pointer-events:none}
+  .noise{position:fixed;inset:0;z-index:0;opacity:.025;pointer-events:none;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
+    .floating-orb,#particle-canvas{display:none !important}
+  }
+
+  /* header */
+  .hd{padding:26px 0}
+  .hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
+  .hd__logo{display:flex;align-items:center;gap:10px}
+  .hd__logo svg{height:30px;width:auto}
+  .hd__logo span{font-family:var(--serif);font-weight:600;font-size:19px;letter-spacing:.01em}
+  .hd__right{display:flex;align-items:center;gap:22px}
+  .hd__phone{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;white-space:nowrap}
+  .hd__phone:hover{color:var(--red)}
+  @media(max-width:640px){.hd__phone{display:none}}
+  @media(max-width:400px){.hd__logo span{display:none}}
+
+  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;
+    font-size:16px;padding:15px 28px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;
+    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;white-space:nowrap}
+  .btn--primary{background:var(--red);color:#fff;box-shadow:0 14px 34px -14px rgba(227,30,36,.65)}
+  .btn--primary:hover{background:var(--red-deep);transform:translateY(-2px)}
+  .btn--ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
+  .btn--ghost:hover{border-color:var(--red);color:#fff}
+
+  /* hero */
+  .hero{padding:56px 0 40px}
+  .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+  @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:44px}}
+
+  .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
+    background:rgba(227,30,36,.1);border:1px solid rgba(227,30,36,.28);font-size:13px;font-weight:600;
+    letter-spacing:.02em;margin-bottom:22px;color:#ffb3b3}
+  .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px rgba(227,30,36,.8);animation:dotPulse 2s ease-in-out infinite}
+  @keyframes dotPulse{0%,100%{opacity:.45}50%{opacity:1}}
+
+  .hero h1{font-size:clamp(32px,4.2vw,50px);margin-bottom:20px}
+  .hero p.lead{color:var(--muted);font-size:18px;max-width:56ch;margin-bottom:30px}
+
+  .bullets{list-style:none;display:flex;flex-direction:column;gap:15px;margin-bottom:34px}
+  .bullets li{display:flex;align-items:flex-start;gap:14px;font-size:15.5px;color:#ded9d2}
+  .bullet-icon{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:rgba(227,30,36,.15);
+    border:1px solid rgba(227,30,36,.35);display:flex;align-items:center;justify-content:center}
+  .bullet-icon svg{width:15px;height:15px}
+
+  .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:26px}
+  .trust-line{font-size:14px;color:var(--muted)}
+  .trust-line b{color:var(--ink);font-weight:600}
+
+  /* дашборд-визуал (полностью векторный, без внешних изображений) */
+  .dash-container{position:relative;perspective:1100px}
+  .dash-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:560px;height:560px;
+    background:radial-gradient(circle,rgba(227,30,36,.32) 0%,transparent 70%);border-radius:50%;
+    animation:glowPulse 4.5s ease-in-out infinite;z-index:-1}
+  @keyframes glowPulse{0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1)}50%{opacity:.85;transform:translate(-50%,-50%) scale(1.14)}}
+
+  .dash-card{animation:dashLevitate 6.5s ease-in-out infinite;transform-style:preserve-3d;will-change:transform;
+    background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
+    border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px 26px 22px;backdrop-filter:blur(6px);
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.02) inset}
+  @keyframes dashLevitate{
+    0%,100%{transform:translateY(0px) rotateY(-4deg) rotateX(1.5deg)}
+    25%{transform:translateY(-14px) rotateY(0deg) rotateX(0deg)}
+    50%{transform:translateY(-7px) rotateY(4deg) rotateX(-1.5deg)}
+    75%{transform:translateY(-18px) rotateY(0deg) rotateX(.5deg)}
+  }
+  .dash-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+  .dash-tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#d8d4cc;
+    background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 12px}
+  .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.8);animation:liveBlink 1.8s ease-in-out infinite}
+  @keyframes liveBlink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.7),0 0 8px rgba(34,197,94,.8)}50%{opacity:.4;box-shadow:0 0 0 5px rgba(34,197,94,0),0 0 8px rgba(34,197,94,.8)}}
+  .dash-metric{font-family:var(--serif);font-size:15px;color:var(--ink)}
+  .dash-metric b{color:#4ade80;font-weight:600}
+
+  .dash-chart{width:100%;height:180px;display:block}
+  .dash-chart .grid line{stroke:rgba(255,255,255,.07);stroke-width:1}
+  .dash-chart .area{fill:url(#areaGrad)}
+  .dash-chart .line{fill:none;stroke:var(--red);stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round;
+    stroke-dasharray:600;stroke-dashoffset:600;animation:drawLine 2.4s ease-out .3s forwards}
+  @keyframes drawLine{to{stroke-dashoffset:0}}
+  .dash-chart .dot{fill:var(--red);animation:dotAppear .4s ease-out 2.5s both}
+  @keyframes dotAppear{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+
+  .dash-bottom{display:flex;justify-content:space-between;margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
+  .dash-stat{text-align:left}
+  .dash-stat .n{font-family:var(--serif);font-size:20px;font-weight:600}
+  .dash-stat .l{font-size:11.5px;color:var(--muted);letter-spacing:.02em}
+
+  .float-tag{position:absolute;border-radius:12px;padding:9px 14px;font-size:12px;font-weight:600;
+    background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);white-space:nowrap;color:#e8e4dc;
+    animation:floatTag 5s ease-in-out infinite;box-shadow:0 10px 26px -10px rgba(0,0,0,.5)}
+  @keyframes floatTag{0%,100%{transform:translateY(0px)}50%{transform:translateY(-11px)}}
+  .ft-1{top:-6%;right:4%;animation-delay:-1s}
+  .ft-2{bottom:-9%;left:-7%;animation-delay:-3s}
+  @media(max-width:900px){.float-tag{display:none}}
+
+  /* клиенты */
+  .clients{padding:38px 0}
+  .clients .wrap{text-align:center}
+  .clients__label{font-size:13px;color:var(--muted);letter-spacing:.04em;margin-bottom:22px;text-transform:uppercase}
+  .clients__row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:14px}
+  .clients__chip{flex:1 1 calc((100% - 7*14px)/8);max-width:126px;height:64px;background:#fdfbf8;
+    border-radius:12px;display:flex;align-items:center;justify-content:center;padding:10px 14px;
+    opacity:.82;transition:opacity .25s ease,transform .2s ease}
+  .clients__chip:hover{opacity:1;transform:translateY(-2px)}
+  .clients__chip img{max-width:100%;max-height:100%;object-fit:contain}
+  @media(max-width:760px){.clients__chip{flex:1 1 calc((100% - 3*14px)/4)}}
+
+  /* секции */
+  section{padding:64px 0}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.04em;color:var(--red);
+    text-transform:uppercase;margin-bottom:12px}
+  h2{font-size:clamp(26px,3vw,36px);margin-bottom:14px}
+  .section-lead{color:var(--muted);font-size:16.5px;max-width:64ch;margin-bottom:42px}
+
+  .cards{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+  @media(max-width:920px){.cards{grid-template-columns:1fr 1fr}}
+  @media(max-width:560px){.cards{grid-template-columns:1fr}}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:28px 24px}
+  .card__icon{width:44px;height:44px;border-radius:12px;background:rgba(227,30,36,.14);border:1px solid rgba(227,30,36,.3);
+    display:flex;align-items:center;justify-content:center;margin-bottom:18px}
+  .card__icon svg{width:21px;height:21px}
+  .card h3{font-size:18px;margin-bottom:9px}
+  .card p{color:var(--muted);font-size:14.5px}
+
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;counter-reset:step}
+  @media(max-width:760px){.steps{grid-template-columns:1fr}}
+  .step{position:relative;padding-top:6px}
+  .step__num{font-family:var(--serif);font-size:44px;color:rgba(227,30,36,.35);line-height:1;margin-bottom:10px}
+  .step h3{font-size:19px;margin-bottom:10px}
+  .step p{color:var(--muted);font-size:15px}
+
+  /* финальный CTA + форма */
+  .cta{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .cta-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;align-items:start}
+  @media(max-width:860px){.cta-grid{grid-template-columns:1fr;gap:32px}}
+  .cta h2{margin-bottom:16px}
+  .cta .lead{color:var(--muted);font-size:16.5px;max-width:48ch}
+
+  .form{background:var(--surface2);border:1px solid var(--line);border-radius:20px;padding:30px}
+  .form h3{font-size:20px;margin-bottom:6px}
+  .form__sub{color:var(--muted);font-size:14px;margin-bottom:22px}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+  .field input,.field textarea{width:100%;padding:13px 15px;border-radius:11px;border:1px solid var(--line);
+    background:rgba(255,255,255,.04);color:var(--ink);font-family:var(--sans);font-size:15px}
+  .field input:focus,.field textarea:focus{outline:none;border-color:var(--red)}
+  .field textarea{resize:vertical;min-height:80px}
+  .hp{position:absolute;left:-9999px;opacity:0}
+  .checks{display:flex;flex-direction:column;gap:9px;margin:16px 0 22px}
+  .chk{display:flex;align-items:flex-start;gap:9px;font-size:12.5px;color:var(--muted);cursor:pointer}
+  .chk input{margin-top:2px;flex:0 0 auto}
+  .chk a{color:#ddb;text-decoration:underline}
+  .form button{width:100%;justify-content:center}
+  .form__ok{display:none;text-align:center;padding:20px 0}
+  .form.sent .form__body{display:none}
+  .form.sent .form__ok{display:block}
+  .form__ok .ic{font-size:38px;margin-bottom:10px}
+  .form__ok h3{margin-bottom:8px}
+  .form__ok p{color:var(--muted);font-size:14.5px}
+
+  footer{padding:40px 0}
+  .ft{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;
+    border-top:1px solid var(--line);padding-top:28px}
+  .ft__logo{display:flex;align-items:center;gap:10px}
+  .ft__logo svg{height:22px;width:auto;opacity:.85}
+  .ft__meta{display:flex;gap:20px;font-size:13.5px;color:var(--muted);flex-wrap:wrap}
+  .ft__meta a{text-decoration:none}
+  .ft__meta a:hover{color:var(--ink)}
+  @media(max-width:600px){.ft{flex-direction:column;text-align:center}}
+
+  ::-webkit-scrollbar{width:8px}
+  ::-webkit-scrollbar-track{background:#000}
+  ::-webkit-scrollbar-thumb{background:rgba(227,30,36,.4);border-radius:4px}
+  ::-webkit-scrollbar-thumb:hover{background:rgba(227,30,36,.6)}
+</style>
+</head>
+<body>
+
+<div class="floating-orb orb-1"></div>
+<div class="floating-orb orb-2"></div>
+<canvas id="particle-canvas"></canvas>
+<div class="noise"></div>
+
+<header class="hd">
+  <div class="wrap">
+    <a class="hd__logo" href="#">
+      <svg viewBox="0 0 519.55 519.55" xmlns="http://www.w3.org/2000/svg" width="30" height="30">
+        <polygon fill="#E31E24" points="31.04,401.11 28.43,119.11 116.37,172.28 117.09,68.89 260.72,176.15 261.47,68.58 513.9,257.1 258.85,443.68 259.59,337.82 114.48,443.98 115.14,307.02 "/>
+      </svg>
+      <span>Карасов Маркетинг</span>
+    </a>
+    <div class="hd__right">
+      <a class="hd__phone" href="tel:+79025777699">+7&nbsp;902&nbsp;5&nbsp;777&nbsp;699</a>
+      <a class="btn btn--ghost" href="#form">Обсудить проект</a>
+    </div>
+  </div>
+</header>
+
+<main class="hero">
+  <div class="wrap">
+    <div class="hero__text">
+      <div class="badge"><span class="badge-dot"></span> Карасов Маркетинг · рекламные кампании под ключ</div>
+      <h1>Настройка Яндекс Директа с тем вниманием к деталям, которого заслуживает ваше дело</h1>
+      <p class="lead">Беру на себя вдумчивую, кропотливую работу с рекламным кабинетом — от глубокого понимания вашей ниши до изящных, точных объявлений. Вам остаётся свободное время для того, что действительно приносит удовольствие в собственном деле.</p>
+
+      <ul class="bullets">
+        <li>
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>
+          </div>
+          Глубокое погружение в нишу, аудиторию и её истинные потребности — прежде всего остального
+        </li>
+        <li>
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"></polyline><polyline points="16 7 22 7 22 13"></polyline></svg>
+          </div>
+          Гармоничная структура кампаний — поиск и РСЯ работают согласованно, а не вразнобой
+        </li>
+        <li>
+          <div class="bullet-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"></path></svg>
+          </div>
+          Постоянная, бережная забота о результате — оптимизация и аналитика на регулярной основе
+        </li>
+      </ul>
+
+      <div class="cta-row">
+        <a class="btn btn--primary" href="#form">
+          Обсудить настройку рекламы
+          <svg viewBox="0 0 18 18" fill="none" width="18" height="18"><path d="M4 9H14M14 9L10 5M14 9L10 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+      </div>
+      <p class="trust-line">Ведём рекламные кабинеты в разных нишах — от <b>каркасного домостроения</b> до <b>промышленных гидросистем</b> — с уважением к особенностям каждого дела.</p>
+    </div>
+
+    <div class="hero__visual">
+      <div class="dash-container">
+        <div class="dash-glow"></div>
+        <div class="dash-card">
+          <div class="dash-top">
+            <span class="dash-tag"><span class="live-dot"></span> Кампания активна</span>
+            <span class="dash-metric">Заявки <b>↑ растут</b></span>
+          </div>
+          <svg class="dash-chart" viewBox="0 0 320 180" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#E31E24" stop-opacity=".38"/>
+                <stop offset="100%" stop-color="#E31E24" stop-opacity="0"/>
+              </linearGradient>
+            </defs>
+            <g class="grid">
+              <line x1="0" y1="30" x2="320" y2="30"></line>
+              <line x1="0" y1="75" x2="320" y2="75"></line>
+              <line x1="0" y1="120" x2="320" y2="120"></line>
+              <line x1="0" y1="165" x2="320" y2="165"></line>
+            </g>
+            <path class="area" d="M0,150 L40,140 L80,148 L120,110 L160,120 L200,80 L240,88 L280,45 L320,52 L320,180 L0,180 Z"/>
+            <path class="line" d="M0,150 L40,140 L80,148 L120,110 L160,120 L200,80 L240,88 L280,45 L320,52"/>
+            <circle class="dot" cx="320" cy="52" r="5"></circle>
+          </svg>
+          <div class="dash-bottom">
+            <div class="dash-stat"><div class="n">Поиск</div><div class="l">СТРУКТУРА кампании</div></div>
+            <div class="dash-stat"><div class="n">РСЯ</div><div class="l">ДОПОЛНИТЕЛЬНЫЙ ОХВАТ</div></div>
+            <div class="dash-stat"><div class="n">Цели</div><div class="l">СКВОЗНАЯ АНАЛИТИКА</div></div>
+          </div>
+        </div>
+        <div class="float-tag ft-1">🎯 Поиск + РСЯ</div>
+        <div class="float-tag ft-2">📈 Аналитика целей</div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<section class="clients">
+  <div class="wrap">
+    <div class="clients__label">Нам доверяют</div>
+    <div class="clients__row">
+      <div class="clients__chip"><img src="assets/clients/finestra.jpg" alt="Finestra" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/flagman.jpg" alt="Флагман" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/magitel.jpg" alt="Магител" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/korobka.jpg" alt="Коробка" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/renbox.jpg" alt="Renbox" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/domstroy.svg" alt="Домстрой" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/dozhd.svg" alt="Дождь" loading="lazy"></div>
+      <div class="clients__chip"><img src="assets/clients/sigma-geo.svg" alt="Сигма-Гео" loading="lazy"></div>
+    </div>
+  </div>
+</section>
+
+<section id="what">
+  <div class="wrap">
+    <span class="eyebrow">Что входит в настройку</span>
+    <h2>Четыре составляющие вдумчивой работы</h2>
+    <p class="section-lead">Каждый рекламный кабинет собирается по одному и тому же принципу — сперва понимание, затем структура, и лишь после этого — тексты и цифры.</p>
+    <div class="cards">
+      <div class="card">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg></div>
+        <h3>Погружение в нишу</h3>
+        <p>Изучаем ваш рынок, конкурентов и подлинный язык клиентов — фундамент, на котором строится всё остальное.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"></rect><rect x="14" y="3" width="7" height="7" rx="1"></rect><rect x="3" y="14" width="7" height="7" rx="1"></rect><rect x="14" y="14" width="7" height="7" rx="1"></rect></svg></div>
+        <h3>Структура и стратегия</h3>
+        <p>Собираем кампании поиска и РСЯ в стройную, продуманную систему с осмысленными ставками и бюджетами.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"></path><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"></path></svg></div>
+        <h3>Объявления и креативы</h3>
+        <p>Пишем тексты и подбираем визуал так, чтобы объявление говорило на языке вашей аудитории — красиво и по существу.</p>
+      </div>
+      <div class="card">
+        <div class="card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="#E31E24" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg></div>
+        <h3>Аналитика и цели</h3>
+        <p>Настраиваем цели Метрики и сквозную аналитику, чтобы каждое решение опиралось на данные, а не на догадки.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="process">
+  <div class="wrap">
+    <span class="eyebrow">Как проходит работа</span>
+    <h2>Три спокойных, понятных шага</h2>
+    <p class="section-lead">Без спешки и лишней суеты — ровно столько внимания, сколько нужно вашему делу.</p>
+    <div class="steps">
+      <div class="step">
+        <div class="step__num">01</div>
+        <h3>Знакомство</h3>
+        <p>Обсуждаем ваше дело, цели и ожидания — вдумчиво, с уважением к деталям, которые важны именно вам.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">02</div>
+        <h3>Настройка и запуск</h3>
+        <p>Собираем кампании, объявления и аналитику, согласовываем каждый шаг с вами перед стартом.</p>
+      </div>
+      <div class="step">
+        <div class="step__num">03</div>
+        <h3>Бережное сопровождение</h3>
+        <p>Регулярно анализируем результаты и аккуратно донастраиваем кампании — работа продолжается и после запуска.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="form">
+  <div class="wrap">
+    <div class="cta-grid">
+      <div class="cta__text">
+        <span class="eyebrow">Начало сотрудничества</span>
+        <h2>Обсудим вашу рекламу?</h2>
+        <p class="lead">Оставьте контакт — созвонимся, разберём вашу ситуацию и предложим решение, которое органично подойдёт именно вашему делу.</p>
+      </div>
+      <form class="form" id="leadForm" novalidate>
+        <div class="form__body">
+          <h3>Оставить заявку</h3>
+          <div class="form__sub">Свяжусь с вами, чтобы договориться об удобном времени разговора.</div>
+          <div class="field"><label for="name">Ваше имя</label><input id="name" name="name" type="text" placeholder="Как к вам обращаться" autocomplete="name"></div>
+          <div class="field"><label for="phone">Телефон</label><input id="phone" name="phone" type="tel" placeholder="+7 ___ ___-__-__" autocomplete="tel" required></div>
+          <div class="field"><label for="comment">Сообщение</label><textarea id="comment" name="comment" placeholder="Коротко о вашем деле или вопрос — по желанию"></textarea></div>
+          <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <div class="checks">
+            <label class="chk"><input type="checkbox" id="agree1" required> <span>Я соглашаюсь с обработкой <a href="https://karasov-m.ru/privaci" target="_blank" rel="noopener">персональных данных</a></span></label>
+            <label class="chk"><input type="checkbox" id="agree2" required> <span>Я даю согласие на получение информационной <a href="https://karasov-m.ru/privaci" target="_blank" rel="noopener">рассылки</a></span></label>
+          </div>
+          <button class="btn btn--primary" type="submit" id="submitBtn">Отправить заявку</button>
+        </div>
+        <div class="form__ok">
+          <div class="ic">🤝</div>
+          <h3>Благодарю вас!</h3>
+          <p>Заявка принята с теплом. Свяжусь с вами в ближайшее время, чтобы договориться об удобном моменте для разговора.</p>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap ft">
+    <div class="ft__logo">
+      <svg viewBox="0 0 519.55 519.55" xmlns="http://www.w3.org/2000/svg" width="22" height="22">
+        <polygon fill="#E31E24" points="31.04,401.11 28.43,119.11 116.37,172.28 117.09,68.89 260.72,176.15 261.47,68.58 513.9,257.1 258.85,443.68 259.59,337.82 114.48,443.98 115.14,307.02 "/>
+      </svg>
+      <span>Карасов Маркетинг</span>
+    </div>
+    <div class="ft__meta">
+      <span><a href="tel:+79025777699">+7 902 5 777 699</a> · Иркутск</span>
+      <a href="https://karasov-m.ru/privaci" target="_blank" rel="noopener">Политика конфиденциальности</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ======= PARTICLE NETWORK =======
+(function() {
+    const canvas = document.getElementById('particle-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d', { alpha: true, desynchronized: true });
+    if (!ctx) return;
+
+    let particleNetwork = [];
+    const maxDist = 150;
+
+    function resizeCanvas() {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    }
+    resizeCanvas();
+
+    let resizeTimeout;
+    window.addEventListener('resize', function() {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => { resizeCanvas(); initParticles(); }, 200);
+    }, { passive: true });
+
+    class ParticleNode {
+        constructor() {
+            this.x = Math.random() * canvas.width;
+            this.y = Math.random() * canvas.height;
+            this.vx = (Math.random() - 0.5) * 0.5;
+            this.vy = (Math.random() - 0.5) * 0.5;
+            this.size = Math.random() * 2 + 1;
+        }
+        update() {
+            this.x += this.vx; this.y += this.vy;
+            if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+            if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = 'rgba(227, 30, 36, 0.4)';
+            ctx.fill();
+        }
+    }
+
+    function initParticles() {
+        particleNetwork = [];
+        const isMobile = window.innerWidth < 768;
+        const divisor = isMobile ? 50000 : 34000;
+        const maxCount = isMobile ? 24 : 42;
+        const count = Math.min(maxCount, Math.floor(canvas.width * canvas.height / divisor));
+        for (let i = 0; i < count; i++) particleNetwork.push(new ParticleNode());
+    }
+
+    function drawConnections() {
+        for (let i = 0; i < particleNetwork.length; i++) {
+            for (let j = i + 1; j < particleNetwork.length; j++) {
+                const dx = particleNetwork[i].x - particleNetwork[j].x;
+                const dy = particleNetwork[i].y - particleNetwork[j].y;
+                const distance = Math.sqrt(dx * dx + dy * dy);
+                if (distance < maxDist) {
+                    const opacity = (1 - distance / maxDist) * 0.14;
+                    ctx.beginPath();
+                    ctx.moveTo(particleNetwork[i].x, particleNetwork[i].y);
+                    ctx.lineTo(particleNetwork[j].x, particleNetwork[j].y);
+                    ctx.strokeStyle = `rgba(227, 30, 36, ${opacity})`;
+                    ctx.lineWidth = 0.5;
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    let animationId;
+    function animateParticles() {
+        if (document.hidden) { animationId = requestAnimationFrame(animateParticles); return; }
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        particleNetwork.forEach(p => { p.update(); p.draw(); });
+        drawConnections();
+        animationId = requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+})();
+
+// ======= форма =======
+(function(){
+  var qs = new URLSearchParams(location.search);
+  var F = document.getElementById('leadForm');
+  var LABELS = ['utm_source','utm_medium','utm_campaign','utm_term','utm_content','utm_device_type','utm_placement','yclid'];
+  var store = {};
+  LABELS.forEach(function(k){ if(qs.get(k)) store[k]=qs.get(k); });
+
+  function gaClientId(){
+    var m = document.cookie.match(/_ga=GA\d\.\d\.(\d+\.\d+)/);
+    return m ? m[1] : '';
+  }
+  var ymId = '';
+  try { ym(110310649,'getClientID',function(id){ ymId = id||''; }); } catch(e){}
+
+  F.addEventListener('submit', function(e){
+    e.preventDefault();
+    if(!document.getElementById('agree1').checked || !document.getElementById('agree2').checked){
+      alert('Пожалуйста, отметьте согласия — так я смогу связаться с вами.'); return;
+    }
+    var btn = document.getElementById('submitBtn');
+    btn.disabled = true; btn.textContent = 'Отправляю…';
+    var payload = Object.assign({
+      form_name:'Настройка Директа · karasov-work',
+      name: document.getElementById('name').value,
+      phone: document.getElementById('phone').value,
+      comment: document.getElementById('comment').value,
+      website: F.website.value,
+      ym_client_id: ymId,
+      ga_client_id: gaClientId()
+    }, store);
+
+    fetch('api', {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json().catch(function(){return {ok:true};}); })
+      .then(function(){
+        F.classList.add('sent');
+        try{ ym(110310649,'reachGoal','direct_setup_lead'); }catch(e){}
+        try{ dataLayer.push({event:'direct_setup_lead'}); }catch(e){}
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent='Отправить заявку';
+        alert('Что-то помешало отправке. Пожалуйста, позвоните: +7 902 5 777 699');
+      });
+  });
+})();
+</script>
+
+</body>
+</html>
