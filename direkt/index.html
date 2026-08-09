@@ -118,13 +118,22 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .hd__phone:hover{color:var(--red)}
   @media(max-width:640px){.hd__phone{display:none}}
 
-  .btn{display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;
+  .btn{position:relative;display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;
     font-size:16px;padding:15px 28px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;
-    transition:transform .18s ease,box-shadow .18s ease,background .18s ease;white-space:nowrap}
-  .btn--primary{background:var(--red);color:#fff;box-shadow:0 14px 34px -14px rgba(227,30,36,.65)}
-  .btn--primary:hover{background:var(--red-deep);transform:translateY(-2px)}
-  .btn--ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line)}
-  .btn--ghost:hover{border-color:var(--red);color:#fff}
+    overflow:hidden;transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1),background .35s ease;white-space:nowrap}
+  .btn--primary{background:linear-gradient(135deg,var(--red) 0%,#ff4b51 50%,var(--red) 100%);
+    background-size:200% 100%;color:#fff;box-shadow:0 14px 34px -14px rgba(227,30,36,.65);
+    animation:btnShimmerBg 3s ease-in-out infinite}
+  .btn--primary::before{content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent,rgba(255,255,255,.3),transparent);
+    transform:translateX(-100%);transition:transform .6s ease}
+  .btn--primary:hover{transform:translateY(-3px) scale(1.02);
+    box-shadow:0 20px 50px -14px rgba(227,30,36,.8)}
+  .btn--primary:hover::before{transform:translateX(100%)}
+  @keyframes btnShimmerBg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+  .btn--ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line);
+    transition:transform .3s ease,border-color .3s ease,color .3s ease,background .3s ease}
+  .btn--ghost:hover{border-color:var(--red);color:#fff;background:rgba(227,30,36,.1);transform:translateY(-2px)}
 
   /* hero */
   .hero{padding:56px 0 40px}
@@ -522,7 +531,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     if (!ctx) return;
 
     let particleNetwork = [];
-    const maxDist = 150;
+    const maxDist = 170;
 
     function resizeCanvas() {
         canvas.width = window.innerWidth;
@@ -560,8 +569,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
     function initParticles() {
         particleNetwork = [];
         const isMobile = window.innerWidth < 768;
-        const divisor = isMobile ? 50000 : 34000;
-        const maxCount = isMobile ? 24 : 42;
+        const divisor = isMobile ? 22000 : 15000;
+        const maxCount = isMobile ? 45 : 95;
         const count = Math.min(maxCount, Math.floor(canvas.width * canvas.height / divisor));
         for (let i = 0; i < count; i++) particleNetwork.push(new ParticleNode());
     }
@@ -573,7 +582,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
                 const dy = particleNetwork[i].y - particleNetwork[j].y;
                 const distance = Math.sqrt(dx * dx + dy * dy);
                 if (distance < maxDist) {
-                    const opacity = (1 - distance / maxDist) * 0.14;
+                    const opacity = (1 - distance / maxDist) * 0.28;
                     ctx.beginPath();
                     ctx.moveTo(particleNetwork[i].x, particleNetwork[i].y);
                     ctx.lineTo(particleNetwork[j].x, particleNetwork[j].y);
