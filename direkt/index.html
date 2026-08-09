@@ -112,7 +112,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .hd{padding:26px 0}
   .hd .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px}
   .hd__logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-  .hd__logo svg{height:46px;width:auto;display:block}
+  .hd__logo svg{height:46px;width:auto;display:block;transition:filter .3s ease,transform .3s ease}
+  .hd__logo:hover svg{filter:drop-shadow(0 0 15px rgba(227,30,36,.55));transform:scale(1.03)}
   .hd__right{display:flex;align-items:center;gap:22px}
   .hd__phone{font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;white-space:nowrap}
   .hd__phone:hover{color:var(--red)}
@@ -121,6 +122,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .btn{position:relative;display:inline-flex;align-items:center;gap:.6em;font-family:var(--sans);font-weight:600;
     font-size:16px;padding:15px 28px;border-radius:999px;border:none;cursor:pointer;text-decoration:none;
     overflow:hidden;transition:transform .35s cubic-bezier(.4,0,.2,1),box-shadow .35s cubic-bezier(.4,0,.2,1),background .35s ease;white-space:nowrap}
+  .btn svg{transition:transform .35s cubic-bezier(.4,0,.2,1)}
   .btn--primary{background:linear-gradient(135deg,var(--red) 0%,#ff4b51 50%,var(--red) 100%);
     background-size:200% 100%;color:#fff;box-shadow:0 14px 34px -14px rgba(227,30,36,.65);
     animation:btnShimmerBg 3s ease-in-out infinite}
@@ -130,6 +132,8 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .btn--primary:hover{transform:translateY(-3px) scale(1.02);
     box-shadow:0 20px 50px -14px rgba(227,30,36,.8)}
   .btn--primary:hover::before{transform:translateX(100%)}
+  .btn--primary:hover svg{transform:translateX(5px)}
+  .btn--primary:active{transform:translateY(-1px) scale(.99)}
   @keyframes btnShimmerBg{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
   .btn--ghost{background:rgba(255,255,255,.06);color:var(--ink);border:1px solid var(--line);
     transition:transform .3s ease,border-color .3s ease,color .3s ease,background .3s ease}
@@ -140,9 +144,17 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .hero .wrap{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
   @media(max-width:900px){.hero .wrap{grid-template-columns:1fr;gap:44px}}
 
-  .badge{display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
+  @property --angle{syntax:'<angle>';initial-value:0deg;inherits:false}
+  .badge{position:relative;display:inline-flex;align-items:center;gap:9px;padding:8px 16px;border-radius:999px;
     background:rgba(227,30,36,.1);border:1px solid rgba(227,30,36,.28);font-size:13px;font-weight:600;
-    letter-spacing:.02em;margin-bottom:22px;color:#ffb3b3}
+    letter-spacing:.02em;margin-bottom:22px;color:#ffb3b3;overflow:hidden}
+  .badge::before{content:'';position:absolute;inset:-1px;border-radius:inherit;padding:1px;
+    background:conic-gradient(from var(--angle,0deg),transparent 0%,rgba(227,30,36,.85) 25%,
+      transparent 50%,rgba(255,179,179,.6) 75%,transparent 100%);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask-composite:exclude;animation:rotateAngle 4s linear infinite;pointer-events:none}
+  @keyframes rotateAngle{to{--angle:360deg}}
   .badge-dot{width:7px;height:7px;border-radius:50%;background:var(--red);box-shadow:0 0 10px rgba(227,30,36,.8);animation:dotPulse 2s ease-in-out infinite}
   @keyframes dotPulse{0%,100%{opacity:.45}50%{opacity:1}}
 
@@ -150,7 +162,10 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .hero p.lead{color:var(--muted);font-size:18px;max-width:56ch;margin-bottom:30px}
 
   .bullets{list-style:none;display:flex;flex-direction:column;gap:15px;margin-bottom:34px}
-  .bullets li{display:flex;align-items:flex-start;gap:14px;font-size:15.5px;color:#ded9d2}
+  .bullets li{display:flex;align-items:flex-start;gap:14px;font-size:15.5px;color:#ded9d2;
+    padding:10px 12px;margin:0 -12px;border-radius:12px;
+    transition:background .4s cubic-bezier(.4,0,.2,1),transform .4s cubic-bezier(.4,0,.2,1)}
+  .bullets li:hover{background:rgba(227,30,36,.07);transform:translateX(6px)}
   .bullet-icon{flex:0 0 30px;width:30px;height:30px;border-radius:50%;background:rgba(227,30,36,.15);
     border:1px solid rgba(227,30,36,.35);display:flex;align-items:center;justify-content:center}
   .bullet-icon svg{width:15px;height:15px}
@@ -158,6 +173,28 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px;margin-bottom:26px}
   .trust-line{font-size:14px;color:var(--muted)}
   .trust-line b{color:var(--ink);font-weight:600}
+
+  /* памятка + счётчик скачиваний */
+  .lead-magnet{margin:22px 0 26px;padding-top:22px;border-top:1px solid var(--line)}
+  .lead-magnet__label{font-size:13px;color:var(--muted);margin-bottom:10px}
+  .lead-magnet__label a{color:#ff9a9e;font-weight:600;text-decoration:none;border-bottom:1px dashed rgba(255,154,158,.5)}
+  .lead-magnet__label a:hover{color:#fff;border-color:#fff}
+  .counter-bar{display:inline-flex;align-items:center;gap:12px;padding:14px 22px;border-radius:100px;
+    background:rgba(255,255,255,.04);border:1px solid var(--line);font-size:14px;font-weight:600;color:#fff;
+    letter-spacing:.02em;transition:all .5s cubic-bezier(.4,0,.2,1);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.06),0 8px 24px rgba(0,0,0,.2)}
+  .counter-bar.updated{border-color:rgba(227,30,36,.5);background:rgba(227,30,36,.12);
+    box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 32px rgba(227,30,36,.2)}
+  .counter-bar.pulse{animation:counterPulse .8s ease-out}
+  @keyframes counterPulse{0%{transform:scale(1)}30%{transform:scale(1.04)}100%{transform:scale(1)}}
+  .counter-icon{width:22px;height:22px;display:flex;align-items:center;justify-content:center;flex-shrink:0;
+    animation:downloadPulse 2s ease-in-out infinite}
+  .counter-icon svg{width:18px;height:18px}
+  @keyframes downloadPulse{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(3px);opacity:.7}}
+  .counter-number{font-weight:800;color:#ff8b8f;transition:all .5s ease;font-variant-numeric:tabular-nums;
+    display:inline-block;min-width:4ch}
+  .counter-number.changing{animation:numberChange .6s ease;color:#ff4b51}
+  @keyframes numberChange{0%{transform:translateY(0);opacity:1}50%{transform:translateY(-8px);opacity:0}51%{transform:translateY(8px);opacity:0}100%{transform:translateY(0);opacity:1}}
 
   /* дашборд-визуал (полностью векторный, без внешних изображений) */
   .dash-container{position:relative;perspective:1100px}
@@ -185,7 +222,7 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .dash-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
   .dash-tag{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:#d8d4cc;
     background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:999px;padding:6px 12px}
-  .live-dot{width:7px;height:7px;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.8);animation:liveBlink 1.8s ease-in-out infinite}
+  .live-dot{display:inline-block;width:7px;height:7px;margin-left:6px;vertical-align:middle;border-radius:50%;background:#22c55e;box-shadow:0 0 8px rgba(34,197,94,.8);animation:liveBlink 1.8s ease-in-out infinite}
   @keyframes liveBlink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(34,197,94,.7),0 0 8px rgba(34,197,94,.8)}50%{opacity:.4;box-shadow:0 0 0 5px rgba(34,197,94,0),0 0 8px rgba(34,197,94,.8)}}
   .dash-metric{font-family:var(--serif);font-size:15px;color:var(--ink)}
   .dash-metric b{color:#4ade80;font-weight:600}
@@ -367,6 +404,14 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
         </a>
       </div>
       <p class="trust-line">Ведём рекламные кабинеты в разных нишах — от <b>каркасного домостроения</b> до <b>промышленных гидросистем</b> — с уважением к особенностям каждого дела.</p>
+
+      <div class="lead-magnet">
+        <p class="lead-magnet__label">Пока думаете — заберите бесплатно: <a href="assets/checklist-direkt.pdf" download id="checklistLink">9 пунктов, которые стоит проверить в своём рекламном кабинете (PDF)</a></p>
+        <div class="counter-bar" id="counterBar">
+          <div class="counter-icon"><svg viewBox="0 0 24 24" fill="none" stroke="#ff8b8f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></div>
+          <span>Скачали уже <span class="counter-number" id="counterNumber">2 638</span> раз<span class="live-dot" title="обновляется в реальном времени"></span></span>
+        </div>
+      </div>
     </div>
 
     <div class="hero__visual">
@@ -605,6 +650,52 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
     initParticles();
     animateParticles();
+})();
+
+// ======= счётчик скачиваний чек-листа =======
+(function(){
+    var STORAGE_KEY = 'direktChecklistCount_v1';
+    var BASE_COUNT = 2638;
+
+    function loadCount(){
+        try{
+            var stored = localStorage.getItem(STORAGE_KEY);
+            var parsed = parseInt(stored, 10);
+            if(!isNaN(parsed) && parsed >= BASE_COUNT) return parsed;
+        }catch(e){}
+        return BASE_COUNT;
+    }
+    function saveCount(v){ try{ localStorage.setItem(STORAGE_KEY, String(v)); }catch(e){} }
+    function formatNumber(n){ return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ' '); }
+
+    var currentCount = loadCount();
+    var counterNumber = document.getElementById('counterNumber');
+    var counterBar = document.getElementById('counterBar');
+    if(!counterNumber || !counterBar) return;
+    counterNumber.textContent = formatNumber(currentCount);
+
+    function animateChange(newValue){
+        counterNumber.classList.add('changing');
+        setTimeout(function(){
+            currentCount = newValue;
+            counterNumber.textContent = formatNumber(currentCount);
+            counterNumber.classList.remove('changing');
+            counterBar.classList.add('updated', 'pulse');
+            saveCount(currentCount);
+            setTimeout(function(){ counterBar.classList.remove('pulse'); }, 800);
+        }, 300);
+    }
+    function scheduleNext(){
+        var delayMs = (35 + Math.random() * 70) * 1000;
+        setTimeout(function(){ animateChange(currentCount + 1); scheduleNext(); }, delayMs);
+    }
+    setTimeout(function(){ animateChange(currentCount + 1); scheduleNext(); }, 4000);
+
+    var link = document.getElementById('checklistLink');
+    if(link) link.addEventListener('click', function(){
+        animateChange(currentCount + 1);
+        try{ ym(110310649,'reachGoal','checklist_download'); }catch(e){}
+    });
 })();
 
 // ======= форма =======
