@@ -61,9 +61,51 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .noise{position:fixed;inset:0;z-index:0;opacity:.025;pointer-events:none;
     background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
+  /* тонкая сетка, растворяющаяся к краям */
+  .grid-overlay{position:fixed;inset:0;z-index:0;pointer-events:none;
+    background-image:
+      linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:56px 56px;
+    mask-image:radial-gradient(ellipse at 50% 30%,black 25%,transparent 75%);
+    -webkit-mask-image:radial-gradient(ellipse at 50% 30%,black 25%,transparent 75%)}
+
+  /* фоновые кольца — медленное вращение */
+  .bg-rings{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+  .bg-ring{position:absolute;border:1px solid rgba(227,30,36,.16);border-radius:50%;animation:ringRotate 26s linear infinite}
+  .bg-ring:nth-child(1){width:420px;height:420px;top:6%;right:-120px}
+  .bg-ring:nth-child(2){width:260px;height:260px;top:14%;right:-40px;animation-duration:19s;animation-direction:reverse}
+  .bg-ring:nth-child(3){width:560px;height:560px;bottom:-220px;left:-160px;animation-duration:34s}
+  @keyframes ringRotate{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+  /* фоновые изометрические кубы */
+  .cubes-bg{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;perspective:1200px;opacity:.5}
+  .cube{position:absolute;transform-style:preserve-3d;will-change:transform}
+  .cube .face{position:absolute;inset:0;border:1px solid rgba(227,30,36,.18);
+    background:linear-gradient(135deg,rgba(227,30,36,.04),rgba(169,19,25,.01));border-radius:4px}
+  .cube .front{transform:translateZ(calc(var(--s)/2))}
+  .cube .back{transform:translateZ(calc(var(--s)/-2)) rotateY(180deg)}
+  .cube .right{transform:rotateY(90deg) translateZ(calc(var(--s)/2))}
+  .cube .left{transform:rotateY(-90deg) translateZ(calc(var(--s)/2))}
+  .cube .top{transform:rotateX(90deg) translateZ(calc(var(--s)/2))}
+  .cube .bottom{transform:rotateX(-90deg) translateZ(calc(var(--s)/2))}
+  .cube-1{--s:86px;width:var(--s);height:var(--s);top:16%;left:6%;animation:cubeMove1 23s ease-in-out infinite,cubeSpin1 15s linear infinite}
+  .cube-2{--s:56px;width:var(--s);height:var(--s);top:62%;left:11%;animation:cubeMove2 19s ease-in-out infinite,cubeSpin2 12s linear infinite}
+  .cube-3{--s:110px;width:var(--s);height:var(--s);top:36%;right:9%;animation:cubeMove3 27s ease-in-out infinite,cubeSpin3 18s linear infinite}
+  .cube-4{--s:64px;width:var(--s);height:var(--s);bottom:14%;right:16%;animation:cubeMove4 21s ease-in-out infinite,cubeSpin1 16s linear infinite reverse}
+  @keyframes cubeSpin1{0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)}100%{transform:rotateX(360deg) rotateY(360deg) rotateZ(0deg)}}
+  @keyframes cubeSpin2{0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)}100%{transform:rotateX(-360deg) rotateY(360deg) rotateZ(360deg)}}
+  @keyframes cubeSpin3{0%{transform:rotateX(0deg) rotateY(0deg) rotateZ(0deg)}100%{transform:rotateX(360deg) rotateY(-360deg) rotateZ(180deg)}}
+  @keyframes cubeMove1{0%,100%{translate:0 0}50%{translate:36px -28px}}
+  @keyframes cubeMove2{0%,100%{translate:0 0}50%{translate:-30px 22px}}
+  @keyframes cubeMove3{0%,100%{translate:0 0}50%{translate:44px -34px}}
+  @keyframes cubeMove4{0%,100%{translate:0 0}50%{translate:-26px -26px}}
+
+  @media (max-width:760px){.cubes-bg,.bg-rings{display:none}}
+
   @media (prefers-reduced-motion: reduce){
     *,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}
-    .floating-orb,#particle-canvas{display:none !important}
+    .floating-orb,#particle-canvas,.cubes-bg,.bg-rings{display:none !important}
   }
 
   /* header */
@@ -118,7 +160,13 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
   .dash-card{animation:dashLevitate 6.5s ease-in-out infinite;transform-style:preserve-3d;will-change:transform;
     background:linear-gradient(165deg,rgba(255,255,255,.07),rgba(255,255,255,.02));
     border:1px solid rgba(255,255,255,.12);border-radius:22px;padding:26px 26px 22px;backdrop-filter:blur(6px);
-    box-shadow:0 30px 70px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.02) inset}
+    box-shadow:0 30px 70px -30px rgba(0,0,0,.6),0 0 0 1px rgba(255,255,255,.02) inset;
+    transition:box-shadow .4s ease,border-color .4s ease}
+  /* свечение усиливается при наведении на весь блок парящей карточки */
+  .dash-container:hover .dash-card{border-color:rgba(227,30,36,.4);
+    box-shadow:0 34px 90px -26px rgba(227,30,36,.45),0 0 0 1px rgba(255,255,255,.04) inset}
+  .dash-container:hover .dash-glow{opacity:.95;transform:translate(-50%,-50%) scale(1.22)}
+  .dash-glow{transition:opacity .4s ease,transform .4s ease}
   @keyframes dashLevitate{
     0%,100%{transform:translateY(0px) rotateY(-4deg) rotateX(1.5deg)}
     25%{transform:translateY(-14px) rotateY(0deg) rotateX(0deg)}
@@ -240,6 +288,16 @@ j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefo
 
 <div class="floating-orb orb-1"></div>
 <div class="floating-orb orb-2"></div>
+<div class="grid-overlay"></div>
+<div class="bg-rings" aria-hidden="true">
+  <div class="bg-ring"></div><div class="bg-ring"></div><div class="bg-ring"></div>
+</div>
+<div class="cubes-bg" aria-hidden="true">
+  <div class="cube cube-1"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+  <div class="cube cube-2"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+  <div class="cube cube-3"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+  <div class="cube cube-4"><div class="face front"></div><div class="face back"></div><div class="face right"></div><div class="face left"></div><div class="face top"></div><div class="face bottom"></div></div>
+</div>
 <canvas id="particle-canvas"></canvas>
 <div class="noise"></div>
 
