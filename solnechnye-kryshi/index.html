@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Солнечные крыши — собственный свет от завода Сипрайд</title>
+<meta name="description" content="Солнечные электростанции под ключ от завода Сипрайд. Окупаемость за год на экономии электроэнергии, даже в Иркутской области. Расчёт по вашим счетам за один день.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<!-- Yandex.Metrika counter 114287488 -->
+<script type="text/javascript">
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();
+   for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+   k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+   ym(114287488, "init", {clickmap:true, trackLinks:true, accurateTrackBounce:true, webvisor:true});
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/114287488" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<style>
+:root{
+  --paper:#f3eee4;
+  --paper2:#fffdf8;
+  --ink:#2a2622;
+  --muted:#6e655c;
+  --line:#e4d9c8;
+  --gold:#9a7433;
+  --gold-soft:#f3e6cf;
+  --blue:#1018e2;
+  --shadow:0 18px 50px rgba(60,42,20,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  color:var(--ink);
+  background:
+    radial-gradient(900px 420px at 100% -10%, rgba(154,116,51,.16), transparent 60%),
+    radial-gradient(700px 380px at -10% 20%, rgba(16,24,226,.06), transparent 55%),
+    var(--paper);
+  font-family:Manrope, "Segoe UI", sans-serif;
+  font-size:17px;
+  line-height:1.6;
+}
+img{max-width:100%; display:block}
+a{color:var(--blue)}
+.wrap{width:min(1120px, calc(100% - 40px)); margin:0 auto}
+h1,h2,h3{font-family:"Cormorant Garamond", Georgia, serif; font-weight:500; letter-spacing:-.02em; line-height:1.12; margin:0}
+h1{font-size:clamp(42px, 6vw, 74px)}
+h2{font-size:clamp(34px, 4vw, 52px)}
+h3{font-size:28px}
+p{margin:0}
+.eyebrow{
+  display:inline-flex; align-items:center; gap:10px;
+  color:var(--gold); font-size:13px; letter-spacing:.14em; text-transform:uppercase; font-weight:600;
+}
+.eyebrow:before{content:""; width:28px; height:1px; background:var(--gold)}
+
+header{
+  position:sticky; top:0; z-index:20;
+  backdrop-filter:blur(14px);
+  background:rgba(243,238,228,.86);
+  border-bottom:1px solid rgba(228,217,200,.8);
+}
+.bar{display:flex; align-items:center; justify-content:space-between; gap:18px; min-height:74px}
+.brand{display:flex; align-items:center; gap:14px; text-decoration:none; color:inherit}
+.brand img{height:32px; width:auto}
+.brand-note{display:block; font-size:12px; letter-spacing:.12em; text-transform:uppercase; color:var(--muted)}
+.bar-right{display:flex; align-items:center; gap:18px}
+.phone{color:var(--ink); text-decoration:none; font-weight:600; white-space:nowrap}
+.phone:hover{color:var(--blue)}
+
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:10px;
+  min-height:52px; padding:0 22px;
+  border-radius:999px; border:0; cursor:pointer;
+  background:var(--ink); color:#fffdf8; text-decoration:none; font:600 15px/1 Manrope, sans-serif;
+  box-shadow:0 10px 24px rgba(42,38,34,.16);
+  transition:transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn:hover{transform:translateY(-2px); background:#111; box-shadow:0 16px 30px rgba(42,38,34,.2)}
+.btn:active{transform:translateY(0)}
+.btn{white-space:nowrap}
+.btn .arr{transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+.btn:hover .arr{transform:translateX(4px)}
+.btn.light{background:#fffdf8; color:var(--ink); box-shadow:none; border:1px solid var(--line)}
+
+.hero{padding:54px 0 28px}
+.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center}
+.lead{margin-top:18px; font-size:19px; color:#453f39; max-width:38em}
+.gold{
+  margin-top:26px; padding:18px 20px;
+  background:linear-gradient(180deg, #fff9ef, var(--gold-soft));
+  border:1px solid #ead7b4; border-radius:18px;
+}
+.gold strong{display:block; font-family:"Cormorant Garamond", Georgia, serif; font-size:30px; font-weight:500; line-height:1.15}
+.gold span{display:block; margin-top:8px; color:#5c5144}
+.points{display:grid; gap:10px; margin:22px 0 26px; padding:0; list-style:none}
+.points li{display:flex; gap:12px; align-items:baseline}
+.points i{
+  flex:0 0 8px; height:8px; margin-top:8px; border-radius:2px;
+  background:var(--blue); transform:rotate(45deg);
+}
+
+.visual{position:relative; border-radius:28px; overflow:hidden; aspect-ratio:4/5; box-shadow:var(--shadow)}
+.visual::before, .shot::before{
+  content:""; position:absolute; inset:0;
+  background-position:center; background-size:cover;
+  transform:scale(1); transition:transform .7s ease;
+}
+.visual:hover::before, .shot:hover::before{transform:scale(1.08); transition:transform .28s ease}
+.visual::before{background-image:url("assets/hero.jpg")}
+.cap{
+  position:absolute; left:16px; right:16px; bottom:16px; z-index:1;
+  padding:12px 14px; border-radius:14px;
+  background:rgba(255,253,248,.9); color:var(--muted); font-size:13px;
+}
+
+.hero-photo{display:none}
+
+section{padding:72px 0}
+.sec-head{max-width:740px; margin-bottom:28px}
+.sec-head p{margin-top:12px; color:#4d463f}
+
+.grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.card{
+  background:var(--paper2); border:1px solid var(--line); border-radius:22px;
+  padding:22px; box-shadow:var(--shadow);
+}
+.card p{margin-top:8px; color:#4e4741}
+.card .k{color:var(--gold); font-size:13px; letter-spacing:.08em; text-transform:uppercase; font-weight:600}
+
+.shot{position:relative; overflow:hidden; border-radius:22px; min-height:280px; aspect-ratio:16/10}
+.shot.home::before{background-image:url("assets/home.jpg")}
+.shot.org::before{background-image:url("assets/org.jpg")}
+.shot .cap{position:absolute}
+
+.day-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
+.day-card{
+  background:var(--paper2); border-radius:22px; overflow:hidden; border:1px solid var(--line);
+}
+.day-card .pic{height:150px; background:url("assets/sky.jpg") center/cover}
+.day-card:nth-child(2) .pic{background-position:30% 60%}
+.day-card:nth-child(3) .pic{background-position:70% 40%}
+.day-card div{padding:18px 18px 22px}
+.day-card p{margin-top:8px; color:#4e4741}
+
+.checks{display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; margin:8px 0 0; padding:0; list-style:none}
+.checks li{padding-left:28px; position:relative}
+.checks li:before{
+  content:""; position:absolute; left:0; top:.45em; width:12px; height:12px;
+  border:1.5px solid var(--gold); border-radius:3px; transform:rotate(45deg);
+}
+
+.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:s}
+.step{padding:22px; border-top:1px solid var(--gold)}
+.step:before{
+  counter-increment:s; content:counter(s);
+  display:block; font-family:Manrope, sans-serif; font-weight:600; font-size:28px; color:var(--gold); line-height:1.2;
+}
+.num{font-family:Manrope, sans-serif; font-weight:600; font-size:26px; letter-spacing:0}
+.step p{margin-top:8px; color:#4e4741}
+
+.final{
+  background:#221f1c; color:#f6f1e8; border-radius:32px; padding:36px;
+  display:grid; grid-template-columns:.9fr 1.1fr; gap:28px;
+}
+.final h2{color:#fff}
+.final .quiet{color:#d9cfc2; margin-top:12px}
+.form{display:grid; gap:12px}
+label.f{display:grid; gap:6px; font-size:13px; color:#d9cfc2}
+input[type=text], input[type=tel]{
+  width:100%; min-height:52px; border-radius:14px; border:1px solid #3c372f;
+  background:#2c2824; color:#fff; padding:0 14px; font:16px Manrope, sans-serif;
+}
+input:focus{outline:2px solid #c6a15a; border-color:transparent}
+.choices{display:grid; grid-template-columns:1fr 1fr; gap:8px}
+.choices label{
+  display:flex; gap:8px; align-items:center; min-height:48px; padding:0 12px;
+  border-radius:14px; border:1px solid #3c372f; background:#2c2824; color:#f6f1e8; cursor:pointer;
+}
+.chk{display:block; font-size:13px; color:#d9cfc2}
+.chk span{display:inline}
+.form .btn{width:100%; margin-top:4px}
+.note{min-height:1.4em; font-size:14px; color:#e7d7b4}
+.hp{position:absolute; left:-9999px; height:0; overflow:hidden}
+
+footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
+.foot{display:grid; gap:8px}
+.foot a{color:inherit}
+.logo-line{display:flex; align-items:center; gap:16px; margin-bottom:8px}
+.logo-line img{height:28px; width:auto; filter:none}
+footer .policy{display:block; margin-top:8px}
+
+@media (max-width:980px){
+  .hero-grid, .final, .grid-3, .grid-2, .steps, .day-grid, .checks{grid-template-columns:1fr}
+  .visual{display:none}
+  .hero{padding-bottom:0}
+  .hero-photo{
+    display:block; width:min(1120px, calc(100% - 40px)); margin:18px auto 0;
+    aspect-ratio:16/9; border-radius:22px; overflow:hidden; position:relative;
+    background:url("assets/hero.jpg") center 62%/cover;
+  }
+  .day-grid{display:block; position:relative}
+  .day-card{display:none}
+  .day-card.on{display:block}
+  .brand-note{display:none}
+  .bar-right .phone{display:none}
+  section{padding:48px 0}
+  .final{padding:22px}
+  .choices{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion: reduce){
+  *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
+}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="https://sipride.ru/" target="_blank" rel="noopener">
+      <img src="assets/logo.svg" width="210" height="30" alt="Сипрайд">
+      <span class="brand-note">Солнечные крыши</span>
+    </a>
+    <div class="bar-right">
+      <a class="phone" href="tel:+73952486969">+7 (3952) 48-69-69</a>
+      <a class="btn" href="#consult">Узнайте больше <span class="arr">→</span></a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Направление завода «Сипрайд»</div>
+      <h1>Свет, к которому приятно возвращаться</h1>
+      <p class="lead">Солнечная станция на крыше — для загородного дома с тихим, тёплым укладом и для организации, которой близка ясная, достойная инженерия. Свой свет, ровный день и спокойная уверенность в объекте.</p>
+      <div class="gold">
+        <strong>Окупаемость за год на экономии электроэнергии. Даже в Иркутской области.</strong>
+        <span>Срок считаем по вашим счетам за один день. Он зависит от тарифа и от того, как объект живёт в дневные часы.</span>
+      </div>
+      <ul class="points">
+        <li><i></i><span>Тёплый собственный свет на крыше и в комнатах</span></li>
+        <li><i></i><span>Гармоничный уклад: дом и предприятие на своём источнике</span></li>
+        <li><i></i><span>Понятная смета и расчёт окупаемости до договора</span></li>
+      </ul>
+      <a class="btn" href="#consult">Узнайте больше <span class="arr">→</span></a>
+    </div>
+    <div class="visual" role="img" aria-label="Дом с солнечными панелями на крыше, цветы и зелёные холмы">
+      <div class="cap">Образ собственного света. Снимки станций «Сипрайд» появятся вместе с первыми объектами.</div>
+    </div>
+  </div>
+</section>
+<div class="hero-photo" role="img" aria-label="Дом с солнечными панелями на крыше"></div>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Зачем это живётся легко</div>
+      <h2>Крыша, которая держит светлый порядок</h2>
+      <p>Завод «Сипрайд» собирает станцию как инженерный проект: с понятной экономикой, заводским контролем и гарантией исполнения. Рядом — экспертиза направления «Солнечные крыши», с 2020 года.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card">
+        <div class="k">Экономия</div>
+        <h3>Счета становятся легче</h3>
+        <p>В буклете направления — снижение счетов за электроэнергию на 40–70%. Для предприятий сюда же ложится более спокойная работа с пиковой мощностью.</p>
+      </article>
+      <article class="card">
+        <div class="k">Спокойствие</div>
+        <h3>Резерв в важный час</h3>
+        <p>Свой источник поддерживает критичные процессы, когда внешняя сеть живёт с перебоями. Дом и смена продолжаются в своём ритме.</p>
+      </article>
+      <article class="card">
+        <div class="k">Доверие</div>
+        <h3>За проектом стоит завод</h3>
+        <p>Иркутск, больше десяти лет инженерных объектов, договор, НДС для организаций и полный пакет закрывающих документов.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">День собственного света</div>
+      <h2>Как проживается станция</h2>
+      <p>Три спокойных состояния одного и того же решения. На узком экране карточки сменяются сами, страница при этом стоит ровно.</p>
+    </div>
+    <div class="day-grid" id="day">
+      <article class="day-card on">
+        <div class="pic"></div>
+        <div>
+          <h3>Утро</h3>
+          <p>Крыша встречает первый тёплый свет. Дом или цех просыпается уже на своём, и день начинается мягко.</p>
+        </div>
+      </article>
+      <article class="day-card">
+        <div class="pic"></div>
+        <div>
+          <h3>Полдень</h3>
+          <p>Ровная выработка под вашим углом и вашей тенью. Объект живёт светло, а счёт за сеть становится тише.</p>
+        </div>
+      </article>
+      <article class="day-card">
+        <div class="pic"></div>
+        <div>
+          <h3>Вечер</h3>
+          <p>Дневной запас остаётся с вами: тихий резерв и приятный свет там, где хочется задержаться.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Кому это близко</div>
+      <h2>Дом, в котором хорошо, и объект, которым гордятся</h2>
+      <p>Для хозяина дома и для собственника объекта, которым близки правильность решения и его спокойная красота.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="shot home" role="img" aria-label="Жилые крыши с солнечными панелями"></div>
+        <div class="k" style="margin-top:16px">Загородный дом</div>
+        <h3>Свой свет у семьи</h3>
+        <p>Тихий резерв, бережный семейный бюджет и крыша, на которую приятно смотреть. Полная независимость там, где сеть далеко или капризна.</p>
+      </article>
+      <article class="card">
+        <div class="shot org" role="img" aria-label="Производственные корпуса с панелями на кровле"></div>
+        <div class="k" style="margin-top:16px">Организация</div>
+        <h3>Достойное хозяйство</h3>
+        <p>Склад, ферма, коммерческое здание. Пример из буклета: склад около 2&nbsp;000&nbsp;м² — система от 200&nbsp;кВт. Снижение пиков, ясная смета, документы под юрлицо.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Что входит</div>
+      <h2>Полный цикл, собранный одной командой</h2>
+    </div>
+    <ul class="checks">
+      <li>Знакомство со счетами и крышей: выезд или спокойный разбор на расстоянии</li>
+      <li>Предварительный расчёт мощности и срока окупаемости за один день</li>
+      <li>Проект и фиксированное предложение с понятным составом</li>
+      <li>Поставка оборудования направления силами завода, со своей логистикой</li>
+      <li>Монтаж и пусконаладка аттестованной бригадой, по нормам ПУЭ и СНиП</li>
+      <li>Обучение, исполнительная документация и гарантийное обслуживание</li>
+    </ul>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Как проходит</div>
+      <h2>Три шага до собственного света</h2>
+    </div>
+    <div class="steps">
+      <article class="step">
+        <h3>Счета и крыша</h3>
+        <p>Слушаем, как объект живёт днём, и смотрим потенциал кровли или участка.</p>
+      </article>
+      <article class="step">
+        <h3>Проект и смета</h3>
+        <p>Техническое задание, модель выработки и предложение, в котором состав читается сразу.</p>
+      </article>
+      <article class="step">
+        <h3>Монтаж и пуск</h3>
+        <p>Бригада завода подключает станцию, передаёт документы и остаётся на гарантии.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Опора</div>
+      <h2>Уверенность в каждом киловатте</h2>
+      <p>Гарантия на панели — до 25 лет, на инверторы — до 5–10 лет, с обязательствами производителей. Монтаж закрывает договор завода-исполнителя. Модель выработки строится с учётом затенения, климата и угла именно вашей крыши.</p>
+    </div>
+    <div class="grid-3">
+      <article class="card"><h3 class="num">10+ лет</h3><p>Инженерные объекты «Сипрайд» по России: очистные, насосные, ёмкости, металлоконструкции.</p></article>
+      <article class="card"><h3 class="num">С 2020 года</h3><p>Направление «Солнечные крыши»: подбор, проектирование и пусконаладка солнечных систем, знание инсоляции регионов.</p></article>
+      <article class="card"><h3>Иркутск</h3><p>Завод на Ракитной, офис на Старо-Кузьмихинской. Подрядчик с адресом, производством и историей.</p></article>
+    </div>
+  </div>
+</section>
+
+<section id="consult">
+  <div class="wrap">
+    <div class="final">
+      <div>
+        <div class="eyebrow">Консультация</div>
+        <h2>Узнайте, как свет ляжет на ваш объект</h2>
+        <p class="quiet">Оставьте имя и телефон. Разберём счета, крышу и назовём срок окупаемости до того, как говорить о договоре.</p>
+        <p class="quiet" style="margin-top:18px">Телефон отдела продаж<br><a href="tel:+73952486969" style="color:#fff; font-size:22px; text-decoration:none">+7 (3952) 48-69-69</a><br>office@sipride.ru</p>
+      </div>
+      <form class="form" id="lead" novalidate>
+        <div class="hp" aria-hidden="true">
+          <label>Сайт<input type="text" name="wf_9x2q" tabindex="-1" autocomplete="off"></label>
+        </div>
+        <input type="hidden" name="form_ts" id="form_ts">
+        <label class="f">Имя
+          <input type="text" name="name" autocomplete="name" required maxlength="200" placeholder="Как к вам обращаться">
+        </label>
+        <label class="f">Телефон
+          <input type="tel" name="phone" autocomplete="tel" required inputmode="tel" placeholder="+7">
+        </label>
+        <div class="f">О чём расскажем
+          <div class="choices">
+            <label><input type="radio" name="object" value="home" required> Загородный дом</label>
+            <label><input type="radio" name="object" value="org"> Организация</label>
+          </div>
+        </div>
+        <label class="chk"><input type="checkbox" id="agree" required> <span>Соглашаюсь на обработку <a href="https://sipride.ru/policy" target="_blank" rel="noopener">персональных данных</a></span></label>
+        <button class="btn" type="submit">Узнайте больше <span class="arr">→</span></button>
+        <div class="note" id="note" role="status"></div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <div class="logo-line">
+      <img src="assets/logo.svg" width="180" height="26" alt="Сипрайд">
+    </div>
+    <div>Завод — Иркутск, ул. Ракитная, 18/3</div>
+    <div>Офис — Иркутск, ул. Старо-Кузьмихинская, 91/1</div>
+    <div><a href="tel:+73952486969">+7 (3952) 48-69-69</a> · <a href="mailto:office@sipride.ru">office@sipride.ru</a> · <a href="https://sipride.ru/">sipride.ru</a></div>
+    <div>Направление «Солнечные крыши»: солнечные системы с 2020 года, вместе с заводом «Сипрайд».</div>
+    <a class="policy" href="https://sipride.ru/policy">Политика конфиденциальности</a>
+    <div>Фотографии настроения: Pexels (Robert So, Lena Netkach) и Geograph, CC BY-SA 2.0. Это чужие объекты, до снимков станций «Сипрайд».</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var YM = 114287488;
+  var formTs = document.getElementById("form_ts");
+  formTs.value = String(Date.now());
+
+  var params = new URLSearchParams(location.search);
+  var utmKeys = ["utm_source","utm_medium","utm_campaign","utm_term","utm_content","utm_device_type","utm_placement","yclid"];
+  var utm = {};
+  utmKeys.forEach(function(k){ utm[k] = params.get(k) || ""; });
+
+  function gaId(){
+    var m = document.cookie.match(/(?:^|; )_ga=GA\d+\.\d+\.(\d+\.\d+)/);
+    return m ? m[1] : "";
+  }
+  var ymClient = "";
+  var tries = 0;
+  var timer = setInterval(function(){
+    tries++;
+    if (window.ym){
+      try { ym(YM, "getClientID", function(id){ ymClient = id || ""; }); } catch(e){}
+      clearInterval(timer);
+    }
+    if (tries > 25) clearInterval(timer);
+  }, 300);
+
+  var day = document.getElementById("day");
+  var cards = [].slice.call(day.querySelectorAll(".day-card"));
+  var idx = 0;
+  function measure(){
+    var narrow = window.matchMedia("(max-width:980px)").matches;
+    if (!narrow){ day.style.minHeight = ""; return; }
+    var max = 0;
+    cards.forEach(function(c){
+      var prev = c.getAttribute("style") || "";
+      c.style.position = "absolute";
+      c.style.visibility = "hidden";
+      c.style.display = "block";
+      c.style.width = day.clientWidth + "px";
+      max = Math.max(max, c.offsetHeight);
+      c.setAttribute("style", prev);
+    });
+    if (max) day.style.minHeight = max + "px";
+  }
+  function show(n){
+    cards.forEach(function(c,i){ c.classList.toggle("on", i === n); });
+  }
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (!reduce){
+    setInterval(function(){
+      if (!window.matchMedia("(max-width:980px)").matches) return;
+      idx = (idx + 1) % cards.length;
+      show(idx);
+    }, 7000);
+  }
+  measure();
+  window.addEventListener("load", measure);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+  window.addEventListener("resize", measure);
+
+  var form = document.getElementById("lead");
+  var note = document.getElementById("note");
+  form.addEventListener("submit", function(ev){
+    ev.preventDefault();
+    var fd = new FormData(form);
+    var phone = String(fd.get("phone") || "");
+    var digits = phone.replace(/\D/g, "");
+    if (digits.length === 11 && digits[0] === "8") digits = "7" + digits.slice(1);
+    if (digits.length === 10) digits = "7" + digits;
+    if (!(digits.length === 11 && digits[0] === "7")){
+      note.textContent = "Нужен телефон в формате +7, чтобы мы могли перезвонить.";
+      return;
+    }
+    var objectKind = fd.get("object");
+    var product = objectKind === "org"
+      ? "Солнечная станция · организация"
+      : "Солнечная станция · загородный дом";
+    var payload = {
+      name: fd.get("name"),
+      phone: digits,
+      product: product,
+      form_name: "Солнечные крыши · запрос консультации",
+      page_url: location.href.split("#")[0],
+      form_ts: fd.get("form_ts"),
+      wf_9x2q: fd.get("wf_9x2q") || "",
+      ym_client_id: ymClient,
+      ga_client_id: gaId()
+    };
+    utmKeys.forEach(function(k){ payload[k] = utm[k]; });
+    note.textContent = "Отправляем…";
+    var btn = form.querySelector("button");
+    btn.disabled = true;
+    fetch("api", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify(payload)
+    }).then(function(r){
+      if (!r.ok) throw new Error("status");
+      return r.json();
+    }).then(function(j){
+      if (!j.ok) throw new Error("ok");
+      try { ym(YM, "reachGoal", "solar_consult"); } catch(e){}
+      form.innerHTML = "<p class='quiet' style='font-size:20px;color:#fff'>Заявка у нас. Мы свяжемся и спокойно разберём ваш объект.</p>";
+    }).catch(function(){
+      btn.disabled = false;
+      note.textContent = "Связь с приёмником прервалась. Позвоните +7 (3952) 48-69-69 — мы на связи.";
+    });
+  });
+})();
+</script>
+</body>
+</html>
