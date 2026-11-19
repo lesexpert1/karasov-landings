@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Солнечные крыши — собственный свет от завода Сипрайд</title>
-<meta name="description" content="Солнечные электростанции под ключ от завода Сипрайд. Окупаемость за год на экономии электроэнергии, даже в Иркутской области. Расчёт по вашим счетам за один день.">
+<title>Солнечные электростанции под ключ — завод Сипрайд</title>
+<meta name="description" content="Проектирование и строительство солнечных электростанций под ключ. Снижение затрат на электричество до 70%. Расчёт окупаемости за 1 день. Завод Сипрайд, Иркутск.">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <!-- Yandex.Metrika counter 114287488 -->
 <script type="text/javascript">
@@ -128,6 +128,7 @@ section{padding:72px 0}
 
 .grid-3{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
 .grid-2{display:grid; grid-template-columns:1fr 1fr; gap:16px}
+.grid-4{display:grid; grid-template-columns:1fr 1fr; gap:16px}
 .card{
   background:#fff; border:1px solid var(--line); border-radius:10px;
   padding:22px;
@@ -140,16 +141,6 @@ section{padding:72px 0}
 .shot.org::before{background-image:url("assets/org.jpg")}
 .shot .cap{position:absolute}
 
-.day-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:16px}
-.day-card{
-  background:#fff; border-radius:10px; overflow:hidden; border:1px solid var(--line);
-}
-.day-card .pic{height:150px; background:url("assets/sky.jpg") center/cover}
-.day-card:nth-child(2) .pic{background-position:30% 60%}
-.day-card:nth-child(3) .pic{background-position:70% 40%}
-.day-card div{padding:18px 18px 22px}
-.day-card p{margin-top:8px; color:#303030}
-
 .checks{display:grid; grid-template-columns:1fr 1fr; gap:12px 28px; margin:8px 0 0; padding:0; list-style:none}
 .checks li{padding-left:28px; position:relative}
 .checks li:before{
@@ -157,7 +148,7 @@ section{padding:72px 0}
   border:2px solid var(--blue); border-radius:2px;
 }
 
-.steps{display:grid; grid-template-columns:repeat(3,1fr); gap:16px; counter-reset:s}
+.steps{display:grid; grid-template-columns:repeat(5,1fr); gap:16px; counter-reset:s}
 .step{padding:22px 8px; border-top:2px solid #1018e2}
 .step:before{
   counter-increment:s; content:counter(s);
@@ -199,7 +190,7 @@ footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
 footer .policy{display:block; margin-top:8px}
 
 @media (max-width:980px){
-  .hero-grid, .final, .grid-3, .grid-2, .steps, .day-grid, .checks{grid-template-columns:1fr}
+  .hero-grid, .final, .grid-3, .grid-2, .grid-4, .steps, .checks{grid-template-columns:1fr}
   .visual{display:none}
   .hero{padding-bottom:0}
   .hero-photo{
@@ -207,9 +198,6 @@ footer .policy{display:block; margin-top:8px}
     aspect-ratio:16/9; border-radius:10px; overflow:hidden; position:relative;
     background:url("assets/hero.jpg") center 62%/cover;
   }
-  .day-grid{display:block; position:relative}
-  .day-card{display:none}
-  .day-card.on{display:block}
   .brand-note{display:none}
   .bar-right .phone{display:none}
   section{padding:48px 0}
@@ -230,7 +218,7 @@ footer .policy{display:block; margin-top:8px}
     </a>
     <div class="bar-right">
       <a class="phone" href="tel:+73952486969">+7 (3952) 48-69-69</a>
-      <a class="btn" href="#consult">Узнайте больше <span class="arr">→</span></a>
+      <a class="btn" href="#consult">Получить расчёт <span class="arr">→</span></a>
     </div>
   </div>
 </header>
@@ -238,22 +226,22 @@ footer .policy{display:block; margin-top:8px}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="eyebrow">Направление завода «Сипрайд»</div>
-      <h1>Свет, к которому приятно возвращаться</h1>
-      <p class="lead">Солнечная станция на крыше — для загородного дома с тихим, тёплым укладом и для организации, которой близка ясная, достойная инженерия. Свой свет, ровный день и спокойная уверенность в объекте.</p>
+      <div class="eyebrow">Завод «Сипрайд» · инженерные решения промышленного уровня</div>
+      <h1>Энергонезависимость и снижение затрат на электричество до 70%</h1>
+      <p class="lead">Направление «Солнечные электростанции»: проектирование и строительство солнечных электростанций под ключ. Собственное производство, аттестованные монтажные бригады и более 10 лет крупных инженерных проектов по всей России.</p>
       <div class="gold">
-        <strong>Окупаемость за год на экономии электроэнергии. Даже в Иркутской области.</strong>
-        <span>Срок считаем по вашим счетам за один день. Он зависит от тарифа и от того, как объект живёт в дневные часы.</span>
+        <strong>Расчёт окупаемости за 1 день</strong>
+        <span>Средний срок возврата инвестиций — от 3 до 6 лет. Срок зависит от региона, тарифа и профиля потребления.</span>
       </div>
       <ul class="points">
-        <li><i></i><span>Тёплый собственный свет на крыше и в комнатах</span></li>
-        <li><i></i><span>Гармоничный уклад: дом и предприятие на своём источнике</span></li>
-        <li><i></i><span>Понятная смета и расчёт окупаемости до договора</span></li>
+        <li><i></i><span>Собственное производство и контроль качества</span></li>
+        <li><i></i><span>Гарантия на панели до 25 лет</span></li>
+        <li><i></i><span>Предварительный расчёт окупаемости и мощности бесплатно</span></li>
       </ul>
-      <a class="btn" href="#consult">Узнайте больше <span class="arr">→</span></a>
+      <a class="btn" href="#consult">Получить расчёт <span class="arr">→</span></a>
     </div>
-    <div class="visual" role="img" aria-label="Дом с солнечными панелями на крыше, цветы и зелёные холмы">
-      <div class="cap">Образ собственного света. Снимки станций «Сипрайд» появятся вместе с первыми объектами.</div>
+    <div class="visual" role="img" aria-label="Крыша с солнечными панелями">
+      <div class="cap">Снимок чужой станции. Фото объектов «Сипрайд» появятся после первых монтажей.</div>
     </div>
   </div>
 </section>
@@ -262,82 +250,53 @@ footer .policy{display:block; margin-top:8px}
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Зачем это живётся легко</div>
-      <h2>Крыша, которая держит светлый порядок</h2>
-      <p>Завод «Сипрайд» собирает станцию как инженерный проект: с понятной экономикой, заводским контролем и гарантией исполнения. Рядом — экспертиза направления «Солнечные крыши», с 2020 года.</p>
-    </div>
-    <div class="grid-3">
-      <article class="card">
-        <div class="k">Экономия</div>
-        <h3>Счета становятся легче</h3>
-        <p>В буклете направления — снижение счетов за электроэнергию на 40–70%. Для предприятий сюда же ложится более спокойная работа с пиковой мощностью.</p>
-      </article>
-      <article class="card">
-        <div class="k">Спокойствие</div>
-        <h3>Резерв в важный час</h3>
-        <p>Свой источник поддерживает критичные процессы, когда внешняя сеть живёт с перебоями. Дом и смена продолжаются в своём ритме.</p>
-      </article>
-      <article class="card">
-        <div class="k">Доверие</div>
-        <h3>За проектом стоит завод</h3>
-        <p>Иркутск, больше десяти лет инженерных объектов, договор, НДС для организаций и полный пакет закрывающих документов.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">День собственного света</div>
-      <h2>Как проживается станция</h2>
-      <p>Три спокойных состояния одного и того же решения. На узком экране карточки сменяются сами, страница при этом стоит ровно.</p>
-    </div>
-    <div class="day-grid" id="day">
-      <article class="day-card on">
-        <div class="pic"></div>
-        <div>
-          <h3>Утро</h3>
-          <p>Крыша встречает первый тёплый свет. Дом или цех просыпается уже на своём, и день начинается мягко.</p>
-        </div>
-      </article>
-      <article class="day-card">
-        <div class="pic"></div>
-        <div>
-          <h3>Полдень</h3>
-          <p>Ровная выработка под вашим углом и вашей тенью. Объект живёт светло, а счёт за сеть становится тише.</p>
-        </div>
-      </article>
-      <article class="day-card">
-        <div class="pic"></div>
-        <div>
-          <h3>Вечер</h3>
-          <p>Дневной запас остаётся с вами: тихий резерв и приятный свет там, где хочется задержаться.</p>
-        </div>
-      </article>
-    </div>
-  </div>
-</section>
-
-<section>
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow">Кому это близко</div>
-      <h2>Дом, в котором хорошо, и объект, которым гордятся</h2>
-      <p>Для хозяина дома и для собственника объекта, которым близки правильность решения и его спокойная красота.</p>
+      <div class="eyebrow">Почему это выгодно сейчас</div>
+      <h2>Инвестиция, которая начинает работать с первого дня</h2>
+      <p>Завод «Сипрайд» делает солнечную генерацию полноценным инженерным проектом: с понятной экономикой, промышленным контролем качества и гарантией исполнения.</p>
     </div>
     <div class="grid-2">
       <article class="card">
-        <div class="shot home" role="img" aria-label="Жилые крыши с солнечными панелями"></div>
-        <div class="k" style="margin-top:16px">Загородный дом</div>
-        <h3>Свой свет у семьи</h3>
-        <p>Тихий резерв, бережный семейный бюджет и крыша, на которую приятно смотреть. Полная независимость там, где сеть далеко или капризна.</p>
+        <div class="k">Счета</div>
+        <h3>Снижение операционных расходов</h3>
+        <p>Сокращение счетов за электроэнергию на 40–70%. Для предприятий — снижение пиковых нагрузок и платы за мощность.</p>
       </article>
       <article class="card">
-        <div class="shot org" role="img" aria-label="Производственные корпуса с панелями на кровле"></div>
-        <div class="k" style="margin-top:16px">Организация</div>
-        <h3>Достойное хозяйство</h3>
-        <p>Склад, ферма, коммерческое здание. Пример из буклета: склад около 2&nbsp;000&nbsp;м² — система от 200&nbsp;кВт. Снижение пиков, ясная смета, документы под юрлицо.</p>
+        <div class="k">Сеть</div>
+        <h3>Энергобезопасность</h3>
+        <p>Бесперебойное питание критически важных процессов при авариях и ограничениях во внешних сетях.</p>
+      </article>
+      <article class="card">
+        <div class="k">Срок</div>
+        <h3>Окупаемость от 3 до 6 лет</h3>
+        <p>Средний срок возврата инвестиций зависит от региона, тарифа и профиля потребления. Предварительный расчёт — за 1 день.</p>
+      </article>
+      <article class="card">
+        <div class="k">Завод</div>
+        <h3>Надёжность исполнителя</h3>
+        <p>Производственные мощности, аттестованные бригады и 10+ лет истории «Сипрайд». Подрядчик с заводом, адресом и договором.</p>
+      </article>
+    </div>
+    <p class="lead" style="margin-top:18px">Собственная генерация повышает инвестиционную привлекательность бизнеса и подтверждает курс на экологичность.</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">О компании</div>
+      <h2>Завод «Сипрайд» — фундамент. «Солнечные крыши» — инженерная экспертиза</h2>
+      <p>Промышленные мощности и опыт исполнения завода соединены с узкой экспертизой направления. Проект считает и строит одна команда, без цепочки случайных подрядчиков.</p>
+    </div>
+    <div class="grid-2">
+      <article class="card">
+        <div class="k">Фундамент</div>
+        <h3>Завод «Сипрайд»</h3>
+        <p>Более 10 лет масштабных инженерных проектов по всей России. Собственные производственные мощности и многоступенчатый контроль качества. Аттестованные монтажные бригады и логистика оборудования в любой регион. Финансовая устойчивость действующего предприятия.</p>
+      </article>
+      <article class="card">
+        <div class="k">Экспертиза</div>
+        <h3>Компания «Солнечные крыши»</h3>
+        <p>С 2020 года — проектирование, подбор оборудования и пусконаладка солнечных и геотермальных систем. Учёт инсоляции в разных регионах РФ. Профессиональное ПО для моделирования выработки.</p>
       </article>
     </div>
   </div>
@@ -346,16 +305,16 @@ footer .policy{display:block; margin-top:8px}
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Что входит</div>
-      <h2>Полный цикл, собранный одной командой</h2>
+      <div class="eyebrow">Ключевое преимущество</div>
+      <h2>Мы строим промышленные системы, а не продаём коробки</h2>
+      <p>Сила «Сипрайд» — в собственной производственной базе и инженерной школе. За исполнение отвечает завод.</p>
     </div>
     <ul class="checks">
-      <li>Знакомство со счетами и крышей: выезд или спокойный разбор на расстоянии</li>
-      <li>Предварительный расчёт мощности и срока окупаемости за один день</li>
-      <li>Проект и фиксированное предложение с понятным составом</li>
-      <li>Поставка оборудования направления силами завода, со своей логистикой</li>
-      <li>Монтаж и пусконаладка аттестованной бригадой, по нормам ПУЭ и СНиП</li>
-      <li>Обучение, исполнительная документация и гарантийное обслуживание</li>
+      <li>Производственная база: собственные мощности и опыт выпуска металлоконструкций и инженерных систем — основа монтажа и несущих решений</li>
+      <li>Аттестованные монтажные бригады завода. Установка по нормам ПУЭ и СНиП</li>
+      <li>Многоступенчатый контроль: материалы на входе, контроль монтажа, приёмо-сдаточные испытания перед запуском</li>
+      <li>Собственная логистика: доставка оборудования по всей РФ без длинной цепочки посредников</li>
+      <li>Моделирование выработки с учётом затенения, климата и угла наклона конкретной крыши — экспертиза «Солнечных крыш»</li>
     </ul>
   </div>
 </section>
@@ -363,21 +322,29 @@ footer .policy{display:block; margin-top:8px}
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Как проходит</div>
-      <h2>Три шага до собственного света</h2>
+      <div class="eyebrow">Как мы работаем</div>
+      <h2>5 шагов к электростанции. Полный цикл под ключ</h2>
     </div>
     <div class="steps">
       <article class="step">
-        <h3>Счета и крыша</h3>
-        <p>Слушаем, как объект живёт днём, и смотрим потенциал кровли или участка.</p>
+        <h3>Аудит и консультация</h3>
+        <p>Выезд специалиста или удалённый разбор счетов и объекта. Оценка потенциала крыши и участка.</p>
       </article>
       <article class="step">
         <h3>Проект и смета</h3>
-        <p>Техническое задание, модель выработки и предложение, в котором состав читается сразу.</p>
+        <p>Техническое задание, проект и фиксированное коммерческое предложение.</p>
       </article>
       <article class="step">
-        <h3>Монтаж и пуск</h3>
-        <p>Бригада завода подключает станцию, передаёт документы и остаётся на гарантии.</p>
+        <h3>Производство и поставка</h3>
+        <p>Логистика оборудования силами завода. Контроль комплектации и сроков.</p>
+      </article>
+      <article class="step">
+        <h3>Монтаж и пусконаладка</h3>
+        <p>Установка бригадами завода: подключение, пуск, нормы ПУЭ и СНиП.</p>
+      </article>
+      <article class="step">
+        <h3>Сдача и сервис</h3>
+        <p>Обучение персонала, исполнительная документация, гарантийное обслуживание.</p>
       </article>
     </div>
   </div>
@@ -386,14 +353,65 @@ footer .policy{display:block; margin-top:8px}
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Опора</div>
+      <div class="eyebrow">Гарантии</div>
       <h2>Уверенность в каждом киловатте</h2>
-      <p>Гарантия на панели — до 25 лет, на инверторы — до 5–10 лет, с обязательствами производителей. Монтаж закрывает договор завода-исполнителя. Модель выработки строится с учётом затенения, климата и угла именно вашей крыши.</p>
+      <p>За каждым проектом стоит работающий завод, а не перепродажа чужих подрядчиков.</p>
     </div>
-    <div class="grid-3">
-      <article class="card"><h3 class="num">10+ лет</h3><p>Инженерные объекты «Сипрайд» по России: очистные, насосные, ёмкости, металлоконструкции.</p></article>
-      <article class="card"><h3 class="num">С 2020 года</h3><p>Направление «Солнечные крыши»: подбор, проектирование и пусконаладка солнечных систем, знание инсоляции регионов.</p></article>
-      <article class="card"><h3>Иркутск</h3><p>Завод на Ракитной, офис на Старо-Кузьмихинской. Подрядчик с адресом, производством и историей.</p></article>
+    <div class="grid-2">
+      <article class="card">
+        <div class="k">Оборудование</div>
+        <h3>До 25 лет на панели</h3>
+        <p>На инверторы — до 5–10 лет, с официальными гарантийными обязательствами производителей.</p>
+      </article>
+      <article class="card">
+        <div class="k">Монтаж</div>
+        <h3>Гарантия завода по договору</h3>
+        <p>Монтаж выполняют собственные аттестованные бригады «Сипрайд».</p>
+      </article>
+      <article class="card">
+        <div class="k">Документы</div>
+        <h3>Договор и НДС</h3>
+        <p>Работа по договору, с НДС для юридических лиц, полный пакет закрывающих документов.</p>
+      </article>
+      <article class="card">
+        <div class="k">Устойчивость</div>
+        <h3>10 лет инженерных проектов</h3>
+        <p>Реальные производственные активы и история объектов по всей России.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Решения для задач</div>
+      <h2>Масштаб от склада до частного дома</h2>
+      <p>Каждый сегмент опирается на опыт инженерных объектов «Сипрайд» — от производственных площадок до сельского хозяйства по всей РФ.</p>
+    </div>
+    <div class="grid-4">
+      <article class="card">
+        <div class="shot org" role="img" aria-label="Производственные корпуса"></div>
+        <div class="k" style="margin-top:16px">Промышленность и склады</div>
+        <h3>Пики и плата за мощность</h3>
+        <p>Пример из буклета: склад 2&nbsp;000&nbsp;м² — система от 200&nbsp;кВт.</p>
+      </article>
+      <article class="card">
+        <div class="k">Сельское хозяйство</div>
+        <h3>Фермы, теплицы, полив</h3>
+        <p>Энергоснабжение удалённых объектов там, где нет сетей.</p>
+      </article>
+      <article class="card">
+        <div class="k">Коммерческая недвижимость</div>
+        <h3>Класс объекта и эксплуатация</h3>
+        <p>Снижение эксплуатационных расходов и собственная генерация на здании.</p>
+      </article>
+      <article class="card">
+        <div class="shot home" role="img" aria-label="Жилая крыша с панелями"></div>
+        <div class="k" style="margin-top:16px">Частные домовладения</div>
+        <h3>Независимость и резерв</h3>
+        <p>Полная энергонезависимость, резервное питание и экономия семейного бюджета.</p>
+      </article>
     </div>
   </div>
 </section>
@@ -402,9 +420,9 @@ footer .policy{display:block; margin-top:8px}
   <div class="wrap">
     <div class="final">
       <div>
-        <div class="eyebrow">Консультация</div>
-        <h2>Узнайте, как свет ляжет на ваш объект</h2>
-        <p class="quiet">Оставьте имя и телефон. Разберём счета, крышу и назовём срок окупаемости до того, как говорить о договоре.</p>
+        <div class="eyebrow">Расчёт</div>
+        <h2>Узнайте, сколько сэкономит ваш объект уже сегодня</h2>
+        <p class="quiet">Оставьте заявку и получите бесплатный предварительный расчёт окупаемости и мощности солнечной станции для вашего объекта.</p>
         <p class="quiet" style="margin-top:18px">Телефон отдела продаж<br><a href="tel:+73952486969" style="color:#1018e2; font-size:22px; text-decoration:none">+7 (3952) 48-69-69</a><br>office@sipride.ru</p>
       </div>
       <form class="form" id="lead" novalidate>
@@ -418,14 +436,16 @@ footer .policy{display:block; margin-top:8px}
         <label class="f">Телефон
           <input type="tel" name="phone" autocomplete="tel" required inputmode="tel" placeholder="+7">
         </label>
-        <div class="f">О чём расскажем
+        <div class="f">Объект
           <div class="choices">
-            <label><input type="radio" name="object" value="home" required> Загородный дом</label>
-            <label><input type="radio" name="object" value="org"> Организация</label>
+            <label><input type="radio" name="object" value="industry" required> Промышленность и склады</label>
+            <label><input type="radio" name="object" value="agro"> Сельское хозяйство</label>
+            <label><input type="radio" name="object" value="commercial"> Коммерческая недвижимость</label>
+            <label><input type="radio" name="object" value="home"> Частный дом</label>
           </div>
         </div>
         <label class="chk"><input type="checkbox" name="checkbox" value="yes" required> <span>Я согласен с условиями <a href="https://sipride.ru/policy" target="_blank" rel="noopener" style="color:#1018e2">политики конфиденциальности</a></span></label>
-        <button class="btn" type="submit">Узнайте больше <span class="arr">→</span></button>
+        <button class="btn" type="submit">Получить расчёт <span class="arr">→</span></button>
         <div class="note" id="note" role="status"></div>
       </form>
     </div>
@@ -440,9 +460,9 @@ footer .policy{display:block; margin-top:8px}
     <div>Завод — Иркутск, ул. Ракитная, 18/3</div>
     <div>Офис — Иркутск, ул. Старо-Кузьмихинская, 91/1</div>
     <div><a href="tel:+73952486969">+7 (3952) 48-69-69</a> · <a href="mailto:office@sipride.ru">office@sipride.ru</a> · <a href="https://sipride.ru/">sipride.ru</a></div>
-    <div>Направление «Солнечные крыши»: солнечные системы с 2020 года, вместе с заводом «Сипрайд».</div>
+    <div>При технической поддержке направления «Солнечные крыши»: экспертиза в солнечной и геотермальной энергетике с 2020 года.</div>
     <a class="policy" href="https://sipride.ru/policy">Политика конфиденциальности</a>
-    <div>Фотографии настроения: Pexels (Robert So, Lena Netkach) и Geograph, CC BY-SA 2.0. Это чужие объекты, до снимков станций «Сипрайд».</div>
+    <div>Фото: Pexels (Robert So, Lena Netkach) и Geograph, CC BY-SA 2.0. Чужие объекты, не станции «Сипрайд».</div>
   </div>
 </footer>
 
@@ -517,40 +537,6 @@ footer .policy{display:block; margin-top:8px}
     });
   }
 
-  var day = document.getElementById("day");
-  var cards = [].slice.call(day.querySelectorAll(".day-card"));
-  var idx = 0;
-  function measure(){
-    var narrow = window.matchMedia("(max-width:980px)").matches;
-    if (!narrow){ day.style.minHeight = ""; return; }
-    var max = 0;
-    cards.forEach(function(c){
-      var prev = c.getAttribute("style") || "";
-      c.style.position = "absolute";
-      c.style.visibility = "hidden";
-      c.style.display = "block";
-      c.style.width = day.clientWidth + "px";
-      max = Math.max(max, c.offsetHeight);
-      c.setAttribute("style", prev);
-    });
-    if (max) day.style.minHeight = max + "px";
-  }
-  function show(n){
-    cards.forEach(function(c,i){ c.classList.toggle("on", i === n); });
-  }
-  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  if (!reduce){
-    setInterval(function(){
-      if (!window.matchMedia("(max-width:980px)").matches) return;
-      idx = (idx + 1) % cards.length;
-      show(idx);
-    }, 7000);
-  }
-  measure();
-  window.addEventListener("load", measure);
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
-  window.addEventListener("resize", measure);
-
   var form = document.getElementById("lead");
   var note = document.getElementById("note");
   form.addEventListener("submit", function(ev){
@@ -564,10 +550,13 @@ footer .policy{display:block; margin-top:8px}
       note.textContent = "Нужен телефон в формате +7, чтобы мы могли перезвонить.";
       return;
     }
-    var objectKind = fd.get("object");
-    var product = objectKind === "org"
-      ? "Солнечная станция · организация"
-      : "Солнечная станция · загородный дом";
+    var products = {
+      industry: "Солнечная станция · промышленность и склады",
+      agro: "Солнечная станция · сельское хозяйство",
+      commercial: "Солнечная станция · коммерческая недвижимость",
+      home: "Солнечная станция · частный дом"
+    };
+    var product = products[fd.get("object")] || products.industry;
     note.textContent = "Отправляем…";
     var btn = form.querySelector("button");
     btn.disabled = true;
@@ -594,7 +583,7 @@ footer .policy{display:block; margin-top:8px}
     }).then(function(j){
       if (!j.ok) throw new Error("ok");
       try { ym(YM, "reachGoal", "solar_consult"); } catch(e){}
-      form.innerHTML = "<p class='quiet' style='font-size:20px;color:#303030'>Заявка у нас. Мы свяжемся и спокойно разберём ваш объект.</p>";
+      form.innerHTML = "<p class='quiet' style='font-size:20px;color:#303030'>Заявка принята. Подготовим предварительный расчёт окупаемости и мощности и свяжемся с вами.</p>";
     }).catch(function(){
       btn.disabled = false;
       note.textContent = "Связь с приёмником прервалась. Позвоните +7 (3952) 48-69-69 — мы на связи.";
