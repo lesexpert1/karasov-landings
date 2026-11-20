@@ -89,9 +89,49 @@ header{
 header .btn{background:#fff; color:#1018e2}
 header .btn:hover{background:#303030; color:#fff}
 
-.hero{padding:54px 0 28px}
-.hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center}
-.lead{margin-top:18px; font-size:18px; color:#303030; max-width:40em}
+.hero{
+  position:relative;
+  min-height:calc(100svh - 74px);
+  display:flex;
+  align-items:center;
+  padding:24px 0 56px;
+  overflow:hidden;
+  background:#fff;
+}
+.hero-bg{
+  position:absolute; inset:0;
+  background:
+    linear-gradient(to bottom, rgba(255,255,255,0) 42%, rgba(255,255,255,.55) 70%, #ffffff 90%),
+    url("assets/hero-cover.jpg") 68% 42% / cover no-repeat;
+}
+.grid-overlay{
+  position:absolute; inset:0; z-index:1; pointer-events:none;
+  background-image:
+    linear-gradient(rgba(255,255,255,.32) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.32) 1px, transparent 1px);
+  background-size:58px 58px;
+  mask-image:radial-gradient(ellipse at 46% 36%, #000 16%, transparent 70%);
+  -webkit-mask-image:radial-gradient(ellipse at 46% 36%, #000 16%, transparent 70%);
+}
+#particle-canvas{
+  position:absolute; inset:0; z-index:2; width:100%; height:100%;
+  pointer-events:none;
+}
+.hero-plate{
+  position:relative; z-index:3;
+  width:min(540px, 100%);
+  padding:20px 22px 16px;
+  border-radius:10px;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 12px 40px rgba(16,24,40,.08);
+}
+.hero h1{font-size:clamp(30px, 3.3vw, 42px)}
+.hero .lead{margin-top:12px; font-size:16px}
+.hero .gold{margin-top:14px; padding:12px 14px}
+.hero .gold strong{font-size:22px}
+.hero .points{gap:6px; margin:12px 0 14px}
+.hero-credit{margin-top:10px; color:var(--muted); font-size:13px; line-height:1.4}
+.lead{margin-top:18px; font-size:18px; color:#303030}
 .gold{
   margin-top:26px; padding:18px 20px;
   background:#f4f5ff;
@@ -106,21 +146,17 @@ header .btn:hover{background:#303030; color:#fff}
   background:var(--blue); transform:rotate(45deg);
 }
 
-.visual{position:relative; border-radius:10px; overflow:hidden; aspect-ratio:4/5}
-.visual::before, .shot::before{
+.shot::before{
   content:""; position:absolute; inset:0;
   background-position:center; background-size:cover;
   transform:scale(1); transition:transform .7s ease;
 }
-.visual:hover::before, .shot:hover::before{transform:scale(1.08); transition:transform .28s ease}
-.visual::before{background-image:url("assets/hero.jpg")}
+.shot:hover::before{transform:scale(1.08); transition:transform .28s ease}
 .cap{
   position:absolute; left:16px; right:16px; bottom:16px; z-index:1;
   padding:12px 14px; border-radius:10px;
   background:rgba(255,255,255,.92); color:var(--muted); font-size:13px;
 }
-
-.hero-photo{display:none}
 
 section{padding:72px 0}
 .sec-head{max-width:740px; margin-bottom:28px}
@@ -190,14 +226,24 @@ footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
 footer .policy{display:block; margin-top:8px}
 
 @media (max-width:980px){
-  .hero-grid, .final, .grid-3, .grid-2, .grid-4, .steps, .checks{grid-template-columns:1fr}
-  .visual{display:none}
-  .hero{padding-bottom:0}
-  .hero-photo{
-    display:block; width:min(1120px, calc(100% - 40px)); margin:18px auto 0;
-    aspect-ratio:16/9; border-radius:10px; overflow:hidden; position:relative;
-    background:url("assets/hero.jpg") center 62%/cover;
+  .final, .grid-3, .grid-2, .grid-4, .steps, .checks{grid-template-columns:1fr}
+  .hero{
+    align-items:flex-end;
+    min-height:calc(100svh - 64px);
+    padding:16px 0 36px;
   }
+  .hero-bg{background-position:78% 40%}
+  .hero-plate{padding:18px 16px 14px}
+  .hero h1{font-size:28px}
+  .hero .lead{font-size:15px; margin-top:8px}
+  .hero .gold{margin-top:10px; padding:10px 12px}
+  .hero .gold strong{font-size:20px}
+  .hero .gold span{margin-top:4px; font-size:14px}
+  .hero .points{margin:8px 0 10px; gap:4px}
+  .hero .points li{font-size:15px}
+  .hero-credit{font-size:12px; margin-top:8px}
+  .hero-plate{padding:14px 14px 12px}
+  .hero{padding:12px 0 28px}
   .brand-note{display:none}
   .bar-right .phone{display:none}
   section{padding:48px 0}
@@ -206,6 +252,7 @@ footer .policy{display:block; margin-top:8px}
 }
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
+  .grid-overlay, #particle-canvas{display:none !important}
 }
 </style>
 </head>
@@ -224,8 +271,11 @@ footer .policy{display:block; margin-top:8px}
 </header>
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
+  <div class="hero-bg" role="img" aria-label="Солнечные панели на снегу, солнце и заснеженные сосны"></div>
+  <div class="grid-overlay" aria-hidden="true"></div>
+  <canvas id="particle-canvas" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div class="hero-plate">
       <div class="eyebrow">Завод «Сипрайд» · инженерные решения промышленного уровня</div>
       <h1>Энергонезависимость и снижение затрат на электричество до 70%</h1>
       <p class="lead">Направление «Солнечные электростанции»: проектирование и строительство солнечных электростанций под ключ. Собственное производство, аттестованные монтажные бригады и более 10 лет крупных инженерных проектов по всей России.</p>
@@ -239,13 +289,10 @@ footer .policy{display:block; margin-top:8px}
         <li><i></i><span>Предварительный расчёт окупаемости и мощности бесплатно</span></li>
       </ul>
       <a class="btn" href="#consult">Получить расчёт <span class="arr">→</span></a>
-    </div>
-    <div class="visual" role="img" aria-label="Крыша с солнечными панелями">
-      <div class="cap">Снимок чужой станции. Фото объектов «Сипрайд» появятся после первых монтажей.</div>
+      <p class="hero-credit">Снимок чужой станции. Фото объектов «Сипрайд» появятся после первых монтажей.</p>
     </div>
   </div>
 </section>
-<div class="hero-photo" role="img" aria-label="Дом с солнечными панелями на крыше"></div>
 
 <section>
   <div class="wrap">
@@ -462,10 +509,123 @@ footer .policy{display:block; margin-top:8px}
     <div><a href="tel:+73952486969">+7 (3952) 48-69-69</a> · <a href="mailto:office@sipride.ru">office@sipride.ru</a> · <a href="https://sipride.ru/">sipride.ru</a></div>
     <div>При технической поддержке направления «Солнечные крыши»: экспертиза в солнечной и геотермальной энергетике с 2020 года.</div>
     <a class="policy" href="https://sipride.ru/policy">Политика конфиденциальности</a>
-    <div>Фото: Pexels (Robert So, Lena Netkach) и Geograph, CC BY-SA 2.0. Чужие объекты, не станции «Сипрайд».</div>
+    <div>Первый экран — кадр Adobe Stock. Ниже — Pexels и Geograph, CC BY-SA 2.0. Чужие объекты, не станции «Сипрайд».</div>
   </div>
 </footer>
 
+<script>
+(function(){
+  var canvas = document.getElementById("particle-canvas");
+  if (!canvas) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  var ctx = canvas.getContext("2d");
+  var motes = [];
+  var sparks = [];
+  var w = 0, h = 0, dpr = 1, running = true;
+
+  function resize(){
+    var rect = canvas.parentNode.getBoundingClientRect();
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    w = Math.max(1, rect.width);
+    h = Math.max(1, rect.height);
+    canvas.width = Math.round(w * dpr);
+    canvas.height = Math.round(h * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+
+  function onPanels(x, y){
+    if (w < 820) return x > w * 0.08 && y > h * 0.22 && y < h * 0.78;
+    return x > w * 0.40 && y > h * 0.34 && y < h * 0.86;
+  }
+
+  function mote(){
+    var fromSun = Math.random() < 0.72;
+    return {
+      x: fromSun ? Math.random() * w * 0.62 : Math.random() * w,
+      y: -8 - Math.random() * 80,
+      vx: 0.25 + Math.random() * 0.7,
+      vy: 0.7 + Math.random() * 1.15,
+      r: 1.3 + Math.random() * 1.8
+    };
+  }
+
+  function burst(x, y){
+    var n = 4 + (Math.random() * 3 | 0);
+    for (var i = 0; i < n; i++){
+      var along = Math.random() < 0.7;
+      sparks.push({
+        x: x, y: y,
+        vx: along ? 0.8 + Math.random() * 2.1 : (Math.random() - 0.5) * 2.4,
+        vy: along ? 0.25 + Math.random() * 0.9 : -0.4 - Math.random() * 1.3,
+        life: 1,
+        len: 7 + Math.random() * 10
+      });
+    }
+  }
+
+  function frame(){
+    if (!running) return;
+    ctx.clearRect(0, 0, w, h);
+    var cap = w < 820 ? 34 : Math.min(72, Math.round(w * h / 18000));
+    if (motes.length < cap && Math.random() < 0.85) motes.push(mote());
+
+    var i, p, g;
+    for (i = motes.length - 1; i >= 0; i--){
+      p = motes[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      g = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.r * 4);
+      g.addColorStop(0, "rgba(255,244,210,.95)");
+      g.addColorStop(0.35, "rgba(255,196,60,.75)");
+      g.addColorStop(1, "rgba(255,170,20,0)");
+      ctx.fillStyle = g;
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r * 4, 0, 6.2832);
+      ctx.fill();
+      ctx.strokeStyle = "rgba(255,196,70,.45)";
+      ctx.lineWidth = 1.2;
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.lineTo(p.x - p.vx * 14, p.y - p.vy * 14);
+      ctx.stroke();
+      if (onPanels(p.x, p.y) && Math.random() < 0.11){
+        burst(p.x, p.y);
+        motes.splice(i, 1);
+        continue;
+      }
+      if (p.y > h + 12 || p.x > w + 12) motes.splice(i, 1);
+    }
+
+    for (i = sparks.length - 1; i >= 0; i--){
+      p = sparks[i];
+      p.x += p.vx;
+      p.y += p.vy;
+      p.life -= 0.028;
+      if (p.life <= 0){ sparks.splice(i, 1); continue; }
+      ctx.strokeStyle = "rgba(150,190,255," + (p.life * 0.95) + ")";
+      ctx.lineWidth = 1.4;
+      ctx.beginPath();
+      ctx.moveTo(p.x, p.y);
+      ctx.lineTo(p.x - p.vx * p.len, p.y - p.vy * p.len);
+      ctx.stroke();
+      ctx.fillStyle = "rgba(16,24,226," + (p.life * 0.85) + ")";
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, 1.3, 0, 6.2832);
+      ctx.fill();
+    }
+    requestAnimationFrame(frame);
+  }
+
+  resize();
+  window.addEventListener("resize", resize);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(resize);
+  document.addEventListener("visibilitychange", function(){
+    if (document.hidden){ running = false; return; }
+    if (!running){ running = true; requestAnimationFrame(frame); }
+  });
+  requestAnimationFrame(frame);
+})();
+</script>
 <script>
 (function(){
   var YM = 114287488;
