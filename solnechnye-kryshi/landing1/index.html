@@ -236,6 +236,21 @@ footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
 .logo-line img{height:28px; width:auto; filter:none}
 footer .policy{display:block; margin-top:8px}
 .mob{display:none}
+.pop{
+  border:0; padding:22px 46px 18px 18px; border-radius:10px;
+  width:min(440px, calc(100% - 32px));
+  border-top:2px solid #1018e2;
+  color:#303030;
+}
+.pop::backdrop{background:rgba(16,24,40,.45)}
+.pop .k{margin:0}
+.pop h3{margin-top:8px; font-size:22px}
+.pop p{margin-top:12px; font-size:16px; line-height:1.5}
+.pop-x{
+  position:absolute; top:8px; right:8px;
+  width:36px; height:36px; padding:0; border:0; background:transparent;
+  appearance:none; color:#303030; font-size:28px; line-height:1; cursor:pointer;
+}
 
 @media (max-width:980px){
   h2{font-size:26px}
@@ -278,7 +293,13 @@ footer .policy{display:block; margin-top:8px}
     padding:12px 10px 10px;
     border-top:2px solid #1018e2;
   }
+  .grid-2 .card{cursor:pointer}
   .grid-2 .card p{display:none}
+  .grid-2 .card::after{
+    content:"подробнее";
+    display:block; margin-top:8px;
+    color:#1018e2; font-size:13px;
+  }
   .grid-2 .card h3{font-size:15px}
   .card .k{font-size:10px; letter-spacing:0; line-height:1.25}
 
@@ -581,6 +602,35 @@ footer .policy{display:block; margin-top:8px}
   </div>
 </footer>
 
+<dialog class="pop" id="pop">
+  <button type="button" class="pop-x" aria-label="Закрыть">×</button>
+  <div class="k" id="pop-k"></div>
+  <h3 id="pop-h"></h3>
+  <p id="pop-p"></p>
+</dialog>
+<script>
+(function(){
+  var mq = window.matchMedia("(max-width:980px)");
+  var pop = document.getElementById("pop");
+  var cards = document.querySelectorAll(".grid-2 .card");
+  function openFrom(card){
+    if (!mq.matches) return;
+    var para = card.querySelector("p");
+    if (!para) return;
+    document.getElementById("pop-k").textContent = card.querySelector(".k").textContent;
+    document.getElementById("pop-h").textContent = card.querySelector("h3").textContent;
+    document.getElementById("pop-p").textContent = para.textContent;
+    if (!pop.open) pop.showModal();
+  }
+  for (var i = 0; i < cards.length; i++){
+    (function(card){
+      card.addEventListener("click", function(){ openFrom(card); });
+    })(cards[i]);
+  }
+  pop.querySelector(".pop-x").addEventListener("click", function(){ pop.close(); });
+  pop.addEventListener("click", function(e){ if (e.target === pop) pop.close(); });
+})();
+</script>
 <script>
 (function(){
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
