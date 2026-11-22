@@ -229,8 +229,15 @@ input:focus{outline:2px solid #1018e2; border-color:transparent}
 .note{min-height:1.4em; font-size:14px; color:#1018e2}
 .hp{position:absolute; left:-9999px; height:0; overflow:hidden}
 
-footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
+footer{padding:28px 0 0; color:var(--muted); font-size:14px}
 .foot{display:grid; gap:8px}
+.foot-photo{
+  margin-top:36px;
+  height:clamp(260px, 46vw, 540px);
+  background:
+    linear-gradient(to bottom, #ffffff 0%, rgba(255,255,255,.88) 16%, rgba(255,255,255,.35) 38%, rgba(255,255,255,0) 62%),
+    url("assets/foot.jpg") center 28% / cover no-repeat;
+}
 .foot a{color:inherit}
 .logo-line{display:flex; align-items:center; gap:16px; margin-bottom:8px}
 .logo-line img{height:28px; width:auto; filter:none}
@@ -339,7 +346,12 @@ footer .policy{display:block; margin-top:8px}
 
   .final{grid-template-columns:1fr; padding:16px; gap:14px}
   .choices{grid-template-columns:1fr}
-  footer{padding:20px 0 28px}
+  footer{padding:20px 0 0}
+  .foot-photo{
+    margin-top:28px;
+    height:clamp(260px, 78vw, 420px);
+    background-position:center center, center 72%;
+  }
 }
 @media (max-width:980px) and (hover: hover) and (pointer: fine){
   .grid-2 .card:hover{transform:scale(1.05); z-index:1}
@@ -608,6 +620,7 @@ footer .policy{display:block; margin-top:8px}
     <div>При технической поддержке направления «Солнечные крыши»: экспертиза в солнечной и геотермальной энергетике с 2020 года.</div>
     <a class="policy" href="https://sipride.ru/policy">Политика конфиденциальности</a>
   </div>
+  <div class="foot-photo" aria-hidden="true"></div>
 </footer>
 
 <dialog class="pop" id="pop">
