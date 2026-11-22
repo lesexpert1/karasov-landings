@@ -151,7 +151,7 @@ header .btn:hover{background:#303030; color:#fff}
   background-position:center; background-size:cover;
   transform:scale(1); transition:transform .7s ease;
 }
-.shot:hover::before{transform:scale(1.08); transition:transform .28s ease}
+.shot:hover::before{transform:scale(1.12); transition:transform .28s ease}
 .cap{
   position:absolute; left:16px; right:16px; bottom:16px; z-index:1;
   padding:12px 14px; border-radius:10px;
@@ -313,7 +313,7 @@ footer .policy{display:block; margin-top:8px}
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
   .grid-overlay, #particle-canvas{display:none !important}
-  .step:hover{transform:none}
+  .step:hover, .shot:hover::before{transform:none}
 }
 </style>
 </head>
@@ -493,7 +493,7 @@ footer .policy{display:block; margin-top:8px}
 <section>
   <div class="wrap">
     <div class="sec-head">
-      <div class="eyebrow">Решения для задач</div>
+      <div class="eyebrow">Решения различных задач</div>
       <h2>Масштаб от склада до частного дома</h2>
       <p>Каждый сегмент опирается на опыт инженерных объектов «Сипрайд» — от производственных площадок до сельского хозяйства по всей РФ.</p>
     </div>
