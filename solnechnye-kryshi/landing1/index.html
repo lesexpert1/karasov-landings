@@ -230,31 +230,85 @@ footer{padding:28px 0 48px; color:var(--muted); font-size:14px}
 .logo-line{display:flex; align-items:center; gap:16px; margin-bottom:8px}
 .logo-line img{height:28px; width:auto; filter:none}
 footer .policy{display:block; margin-top:8px}
+.mob{display:none}
 
 @media (max-width:980px){
-  .final, .grid-3, .grid-2, .grid-4, .steps, .checks{grid-template-columns:1fr}
+  h2{font-size:26px}
+  h3{font-size:17px}
+  .desk{display:none}
+  .mob{display:inline}
+  .only-desk{display:none}
+  .bar{min-height:60px}
+  .brand img{height:26px}
+  header .btn{min-height:40px; padding:0 14px; font-size:14px}
+  .brand-note, .bar-right .phone{display:none}
+  section{padding:32px 0}
+  .sec-head{margin-bottom:14px}
+  .sec-head p{display:none}
+
   .hero{
     align-items:flex-end;
-    min-height:calc(100svh - 64px);
-    padding:16px 0 36px;
+    min-height:calc(100svh - 60px);
+    padding:0 0 14px;
   }
-  .hero-bg{background-position:78% 40%}
-  .hero-plate{padding:18px 16px 14px}
-  .hero h1{font-size:28px}
-  .hero .lead{font-size:15px; margin-top:8px}
+  .hero-bg{
+    background:
+      linear-gradient(to bottom, rgba(255,255,255,0) 62%, rgba(255,255,255,.4) 86%, #ffffff 100%),
+      url("assets/hero-cover.jpg?v=2") 74% 46% / cover no-repeat;
+  }
+  .hero .eyebrow, .hero .lead, .hero .points, .hero-credit{display:none}
+  .hero-plate{
+    width:100%;
+    padding:14px 14px 12px;
+    background:rgba(255,255,255,.9);
+  }
+  .hero h1{font-size:26px}
   .hero .gold{margin-top:10px; padding:10px 12px}
-  .hero .gold strong{font-size:20px}
+  .hero .gold strong{font-size:18px}
   .hero .gold span{margin-top:4px; font-size:14px}
-  .hero .points{margin:8px 0 10px; gap:4px}
-  .hero .points li{font-size:15px}
-  .hero-credit{font-size:12px; margin-top:8px}
-  .hero-plate{padding:14px 14px 12px}
-  .hero{padding:12px 0 28px}
-  .brand-note{display:none}
-  .bar-right .phone{display:none}
-  section{padding:48px 0}
-  .final{padding:22px}
+  .hero .btn{width:100%; margin-top:12px}
+
+  .grid-2{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px}
+  .grid-2 .card{
+    padding:12px 10px 10px;
+    border-top:2px solid #1018e2;
+  }
+  .grid-2 .card p{display:none}
+  .grid-2 .card h3{font-size:15px}
+  .card .k{font-size:10px; letter-spacing:0; line-height:1.25}
+
+  .steps{
+    display:flex;
+    gap:12px;
+    overflow-x:auto;
+    scroll-snap-type:x mandatory;
+    scrollbar-width:none;
+    padding-bottom:4px;
+  }
+  .steps::-webkit-scrollbar{display:none}
+  .step{
+    flex:0 0 72%;
+    scroll-snap-align:start;
+    border:1px solid var(--line);
+    border-top:2px solid #1018e2;
+    border-radius:10px;
+    padding:14px 14px 12px;
+    background:#fff;
+    transform:none;
+  }
+  .step:hover{transform:none}
+  .step p{font-size:15px}
+
+  .grid-4{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px}
+  .grid-4 .card:has(.shot){grid-column:1 / -1}
+  .grid-4 .card:not(:has(.shot)) p{display:none}
+  .grid-4 .card:not(:has(.shot)){padding:12px}
+  .grid-4 .card:not(:has(.shot)) h3{font-size:16px}
+  .shot{min-height:0}
+
+  .final{grid-template-columns:1fr; padding:16px; gap:14px}
   .choices{grid-template-columns:1fr}
+  footer{padding:20px 0 28px}
 }
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
@@ -316,7 +370,7 @@ footer .policy{display:block; margin-top:8px}
       </article>
       <article class="card">
         <div class="k">Сеть</div>
-        <h3>Энергобезопасность</h3>
+        <h3>Энерго<wbr>безопасность</h3>
         <p>Бесперебойное питание критически важных процессов при авариях и ограничениях во внешних сетях.</p>
       </article>
       <article class="card">
@@ -330,7 +384,7 @@ footer .policy{display:block; margin-top:8px}
         <p>Производственные мощности, аттестованные бригады и 10+ лет истории «Сипрайд». Подрядчик с заводом, адресом и договором.</p>
       </article>
     </div>
-    <p class="lead" style="margin-top:18px">Собственная генерация повышает инвестиционную привлекательность бизнеса и подтверждает курс на экологичность.</p>
+    <p class="lead only-desk" style="margin-top:18px">Собственная генерация повышает инвестиционную привлекательность бизнеса и подтверждает курс на экологичность.</p>
   </div>
 </section>
 
@@ -338,7 +392,7 @@ footer .policy{display:block; margin-top:8px}
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">О компании</div>
-      <h2>Завод «Сипрайд» — фундамент. «Солнечные крыши» — инженерная экспертиза</h2>
+      <h2><span class="desk">Завод «Сипрайд» — фундамент. «Солнечные крыши» — инженерная экспертиза</span><span class="mob">Завод и одна команда</span></h2>
       <p>Промышленные мощности и опыт исполнения завода соединены с узкой экспертизой направления. Проект считает и строит одна команда, без цепочки случайных подрядчиков.</p>
     </div>
     <div class="grid-2">
@@ -356,7 +410,7 @@ footer .policy{display:block; margin-top:8px}
   </div>
 </section>
 
-<section>
+<section class="only-desk">
   <div class="wrap">
     <div class="sec-head">
       <div class="eyebrow">Ключевое преимущество</div>
@@ -476,7 +530,7 @@ footer .policy{display:block; margin-top:8px}
       <div>
         <div class="eyebrow">Расчёт</div>
         <h2>Узнайте, сколько сэкономит ваш объект уже сегодня</h2>
-        <p class="quiet">Оставьте заявку и получите бесплатный предварительный расчёт окупаемости и мощности солнечной станции для вашего объекта.</p>
+        <p class="quiet only-desk">Оставьте заявку и получите бесплатный предварительный расчёт окупаемости и мощности солнечной станции для вашего объекта.</p>
         <p class="quiet" style="margin-top:18px">Телефон отдела продаж<br><a href="tel:+73952486969" style="color:#1018e2; font-size:22px; text-decoration:none">+7 (3952) 48-69-69</a><br>office@sipride.ru</p>
       </div>
       <form class="form" id="lead" novalidate>
@@ -541,14 +595,14 @@ footer .policy{display:block; margin-top:8px}
   }
 
   function onPanels(x, y){
-    if (w < 820) return x > w * 0.08 && y > h * 0.22 && y < h * 0.78;
+    if (w < 820) return y > h * 0.06 && y < h * 0.58;
     return x > w * 0.40 && y > h * 0.34 && y < h * 0.86;
   }
 
   function mote(){
     var fromSun = Math.random() < 0.72;
     return {
-      x: fromSun ? Math.random() * w * 0.62 : Math.random() * w,
+      x: w < 820 ? Math.random() * w : (fromSun ? Math.random() * w * 0.62 : Math.random() * w),
       y: -8 - Math.random() * 80,
       vx: 0.25 + Math.random() * 0.7,
       vy: 0.7 + Math.random() * 1.15,
