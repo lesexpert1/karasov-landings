@@ -5,6 +5,7 @@
 - `audit/` — бесплатный экспресс-аудит воронки → https://karasov-work.ru/audit/
 - `solnechnye-kryshi/` — подпроект «Солнечные крыши»: указатель https://karasov-work.ru/solnechnye-kryshi/ , посадочная https://karasov-work.ru/solnechnye-kryshi/landing1/
 - `direkt/` — настройка Яндекс Директа под ключ → https://karasov-work.ru/direkt/
+- `vedenie/` — ведение Яндекс Директа, 40 000 ₽/мес → https://karasov-work.ru/vedenie/
 - `_receiver/` — приёмник лида для relay (в веб не отдаётся).
 
 Публикация: US собирает → `git push` → relay `git pull` (cron ~2 мин) → отдаёт локально с RF-edge.
