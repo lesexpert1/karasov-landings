@@ -291,9 +291,13 @@ footer .policy{display:block; margin-top:8px}
 
   .grid-2{grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:10px}
   .grid-2 .card{
+    position:relative; z-index:0;
     padding:12px 10px 10px;
     border-top:2px solid #1018e2;
+    transform:scale(1); transform-origin:center;
+    transition:transform .22s ease;
   }
+  .grid-2 .card.is-in{transform:scale(1.05); z-index:1}
   .grid-2 .card{cursor:pointer}
   .grid-2 .card p{display:none}
   .grid-2 .card::after{
@@ -337,10 +341,14 @@ footer .policy{display:block; margin-top:8px}
   .choices{grid-template-columns:1fr}
   footer{padding:20px 0 28px}
 }
+@media (max-width:980px) and (hover: hover) and (pointer: fine){
+  .grid-2 .card:hover{transform:scale(1.05); z-index:1}
+}
 @media (prefers-reduced-motion: reduce){
   *{scroll-behavior:auto !important; transition:none !important; animation:none !important}
   .grid-overlay, #particle-canvas{display:none !important}
-  .step:hover, .shot:hover::before, .shot.is-in::before{transform:none}
+  .step:hover, .shot:hover::before, .shot.is-in::before,
+  .grid-2 .card:hover, .grid-2 .card.is-in{transform:none}
 }
 </style>
 </head>
@@ -626,6 +634,14 @@ footer .policy{display:block; margin-top:8px}
   for (var i = 0; i < cards.length; i++){
     (function(card){
       card.addEventListener("click", function(){ openFrom(card); });
+      card.addEventListener("pointerdown", function(e){
+        if (e.pointerType === "mouse") return;
+        card.classList.add("is-in");
+      });
+      function up(){ card.classList.remove("is-in"); }
+      card.addEventListener("pointerup", up);
+      card.addEventListener("pointercancel", up);
+      card.addEventListener("pointerleave", up);
     })(cards[i]);
   }
   pop.querySelector(".pop-x").addEventListener("click", function(){ pop.close(); });
